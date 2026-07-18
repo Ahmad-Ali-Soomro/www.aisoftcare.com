@@ -75,6 +75,51 @@
                 linear-gradient(to right, rgba(30, 117, 255, 0.04) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(30, 117, 255, 0.04) 1px, transparent 1px);
         }
+
+				
+.card-content{
+    padding:25px;
+}
+
+/* Button Container */
+.btn-box{
+    display:flex;
+    justify-content:center;
+    margin-top:35px;      /* Description se gap */
+    margin-bottom:15px;   /* Card ke bottom se gap */
+}
+
+/* Premium Button */
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:12px 32px;
+    min-width:220px;
+
+    background:linear-gradient(135deg,#00B4FF,#0066FF);
+    color:#fff;
+    text-decoration:none;
+
+    font-size:18px;
+    font-weight:600;
+
+    border-radius:50px;
+    border:none;
+
+    transition:.35s ease;
+    box-shadow:0 8px 25px rgba(0,140,255,.35);
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 35px rgba(0,140,255,.55);
+    background:linear-gradient(135deg,#008CFF,#005BFF);
+}
+
+.btn:active{
+    transform:scale(.97);
+}
     </style>
 </head>
 <body class="bg-cyber-dark text-slate-200 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-dark overflow-x-hidden relative tech-grid">
@@ -267,7 +312,9 @@
                             <p class="text-slate-400 text-xs leading-relaxed">A premium conversion layout built for specialized digital commerce models to catalog luxury inventories, sync shopping pipelines, and highlight elegant media assets.</p>
                         </div>
                     </div>
-                   
+                                  <button class="btn" onclick="window.open('https://ahmad-ali-soomro.github.io/www.avela_fragrances.com/', '_blank');">
+    Open Website
+</button> 
                 </div>
 
                 <!-- Project 4: Patient Care Portal -->
