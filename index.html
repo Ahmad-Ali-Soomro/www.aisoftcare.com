@@ -528,15 +528,78 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-cyber-dark text-slate-600 py-10 border-t border-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-3">
-                <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Brandmark Footer" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=50&auto=format&fit=crop&q=60';" class="h-7 w-7 rounded-full object-cover border border-cyber-cyan/20">
-                <span class="text-lg font-black tracking-widest text-white">AiSoftCare</span>
+   <footer class="bg-cyber-card border-t border-slate-900 text-slate-400 pt-16 pb-12 relative overflow-hidden">
+        <!-- Glow decoration -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-cyber-cyan/5 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3">
+                        <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Brandmark Footer" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=50&auto=format&fit=crop&q=60';" class="h-8 w-8 rounded-full object-cover border border-cyber-cyan/30 shadow-neon-cyan">
+                        <span class="text-lg font-black tracking-widest text-white">AiSoftCare</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Smart Solutions, Care That Connects The Future. Delivering high-performance software systems and tailored digital architectures.
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="https://www.facebook.com/share/1EBgKuaTMq/" target="_blank" rel="noopener noreferrer" class="interactive h-8 w-8 rounded-lg bg-cyber-dark border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyber-cyan hover:border-cyber-cyan/40 transition">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aisoftcarellc?igsh=MXF2dmEycG52dDMzbQ==" target="_blank" rel="noopener noreferrer" class="interactive h-8 w-8 rounded-lg bg-cyber-dark border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyber-purple hover:border-cyber-purple/40 transition">
+                            <i class="fa-brands fa-instagram text-xs"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/aisoftcare/" target="_blank" rel="noopener noreferrer" class="interactive h-8 w-8 rounded-lg bg-cyber-dark border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyber-blue hover:border-cyber-blue/40 transition">
+                            <i class="fa-brands fa-linkedin-in text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4 border-l-2 border-cyber-cyan pl-2">Navigation</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#hero" class="hover:text-cyber-cyan transition">Home Page</a></li>
+                        <li><a href="#services" class="hover:text-cyber-cyan transition">Our Core Services</a></li>
+                        <li><a href="#projects" class="hover:text-cyber-cyan transition">Sample Projects</a></li>
+                        <li><a href="#packages" class="hover:text-cyber-cyan transition">Pricing & Offers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4 border-l-2 border-cyber-purple pl-2">Capabilities</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#services" class="hover:text-cyber-purple transition">Website Development</a></li>
+                        <li><a href="#services" class="hover:text-cyber-purple transition">Custom Software</a></li>
+                        <li><a href="#services" class="hover:text-cyber-purple transition">Web & Mobile Apps</a></li>
+                        <li><a href="#services" class="hover:text-cyber-purple transition">Maintenance Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Location info -->
+                <div class="space-y-3">
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4 border-l-2 border-cyber-blue pl-2">Direct Contact</h4>
+                    <p class="text-xs text-slate-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-envelope text-cyber-cyan"></i>
+                        <span class="font-mono">aisoftcarellc1@gmail.com</span>
+                    </p>
+                    <p class="text-xs text-slate-400 flex items-center space-x-2">
+                        <i class="fa-solid fa-shield-halved text-cyber-purple"></i>
+                        <span>US Registered LLC Enterprise</span>
+                    </p>
+                </div>
             </div>
-            
-            <p class="text-[10px] font-mono tracking-wide text-center md:text-right">&copy; 2026 AiSoftCare LLC. All structural nodes protected.[cite: 1]</p>
+
+            <!-- Bottom Copyright bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <p class="text-[11px] font-mono tracking-wide text-slate-500 text-center sm:text-left">&copy; 2026 AiSoftCare LLC. All structural nodes protected.[cite: 1]</p>
+                <div class="flex space-x-6 text-[11px] text-slate-500">
+                    <a href="#contact" class="hover:text-slate-300 transition">Privacy Policy</a>
+                    <a href="#contact" class="hover:text-slate-300 transition">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
