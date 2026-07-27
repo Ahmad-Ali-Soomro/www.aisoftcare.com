@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AiSoftCare | Smart Solutions, Care That Connects The Future.</title>
-   <link rel="icon" type="image/jpeg" href="aisoftcare-logo.jpeg">
-	<!-- Tailwind CSS CDN -->
+    <link rel="icon" type="image/jpeg" href="aisoftcare-logo.jpeg">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,7 +63,7 @@
         }
 
         .glass {
-            background: rgba(8, 12, 38, 0.8);
+            background: rgba(8, 12, 38, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -74,50 +74,57 @@
                 linear-gradient(to right, rgba(30, 117, 255, 0.04) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(30, 117, 255, 0.04) 1px, transparent 1px);
         }
-		
-.card-content{
-    padding:25px;
-}
 
-/* Button Container */
-.btn-box{
-    display:flex;
-    justify-content:center;
-    margin-top:35px;      /* Description se gap */
-    margin-bottom:15px;   /* Card ke bottom se gap */
-}
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 32px;
+            min-width: 220px;
+            background: linear-gradient(135deg, #00B4FF, #0066FF);
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            transition: .35s ease;
+            box-shadow: 0 8px 25px rgba(0, 140, 255, .35);
+        }
 
-/* Premium Button */
-.btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    padding:12px 32px;
-    min-width:220px;
+        .btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 140, 255, .55);
+            background: linear-gradient(135deg, #008CFF, #005BFF);
+        }
 
-    background:linear-gradient(135deg,#00B4FF,#0066FF);
-    color:#fff;
-    text-decoration:none;
+        /* Custom Logo Pulse & Float Animations */
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.02);
+            }
+        }
 
-    font-size:18px;
-    font-weight:600;
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(138, 43, 226, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(0, 240, 255, 0.7), inset 0 0 25px rgba(0, 240, 255, 0.4);
+            }
+        }
 
-    border-radius:50px;
-    border:none;
+        .animated-center-logo {
+            animation: floatLogo 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-    transition:.35s ease;
-    box-shadow:0 8px 25px rgba(0,140,255,.35);
-}
-
-.btn:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 35px rgba(0,140,255,.55);
-    background:linear-gradient(135deg,#008CFF,#005BFF);
-}
-
-.btn:active{
-    transform:scale(.97);
-}
+        .animated-center-logo:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
     </style>
 </head>
 <body class="bg-cyber-dark text-slate-200 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-dark overflow-x-hidden relative tech-grid">
@@ -127,8 +134,8 @@
     <div id="custom-cursor-dot" class="hidden md:block"></div>
 
     <!-- Background Ambience Nodes -->
-    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyber-blue/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
-    <div class="absolute top-[40%] right-10 w-[600px] h-[600px] bg-cyber-purple/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen"></div>
+    <div class="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-cyber-blue/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+    <div class="absolute top-[40%] right-10 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-cyber-purple/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen"></div>
 
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 glass border-b border-slate-900">
@@ -138,302 +145,212 @@
                     <div class="absolute inset-0 bg-gradient-to-r from-cyber-blue to-cyber-purple rounded-full blur opacity-50 group-hover:opacity-80 transition duration-300"></div>
                     <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Logo Header" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60';" class="h-10 w-10 rounded-full relative border border-cyber-cyan/40 object-cover">
                 </div>
-                <span class="text-xl font-black tracking-widest bg-gradient-to-r from-white via-cyber-cyan to-cyber-purple bg-clip-text text-transparent">AiSoftCare</span>
+                <span class="text-lg sm:text-xl font-black tracking-widest bg-gradient-to-r from-white via-cyber-cyan to-cyber-purple bg-clip-text text-transparent">AiSoftCare</span>
             </a>
             
-            <nav class="hidden md:flex space-x-8 font-medium text-slate-400 text-sm tracking-wide">
-                <a href="#hero" class="hover:text-cyber-cyan transition duration-300 interactive relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-cyber-cyan after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Home</a>
-                <a href="#services" class="hover:text-cyber-cyan transition duration-300 interactive relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-cyber-cyan after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Our Services</a>
-                <a href="#projects" class="hover:text-cyber-cyan transition duration-300 interactive relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-cyber-cyan after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Sample Projects</a>
-                <a href="#packages" class="hover:text-cyber-cyan transition duration-300 interactive relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-cyber-cyan after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Our Offers</a>
-                <a href="#about" class="hover:text-cyber-cyan transition duration-300 interactive relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-cyber-cyan after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Compliance</a>
-                <a href="#contact" class="hover:text-cyber-cyan transition duration-300 interactive relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-cyber-cyan after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Contact</a>
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-slate-400 text-sm tracking-wide">
+                <a href="#hero" class="hover:text-cyber-cyan transition duration-300 interactive">Home</a>
+                <a href="#services" class="hover:text-cyber-cyan transition duration-300 interactive">Our Services</a>
+                <a href="#projects" class="hover:text-cyber-cyan transition duration-300 interactive">Sample Projects</a>
+                <a href="#packages" class="hover:text-cyber-cyan transition duration-300 interactive">Our Offers</a>
+                <a href="#about" class="hover:text-cyber-cyan transition duration-300 interactive">Compliance</a>
+                <a href="#contact" class="hover:text-cyber-cyan transition duration-300 interactive">Contact</a>
             </nav>
 
             <div class="hidden md:block">
-                <a href="#contact" class="interactive inline-block bg-gradient-to-r from-cyber-blue to-cyber-purple text-white px-5 py-2 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:shadow-logo-glow hover:-translate-y-0.5">Connect Now</a>
+                <a href="#contact" class="interactive inline-block bg-gradient-to-r from-cyber-blue to-cyber-purple text-white px-4 lg:px-5 py-2 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:shadow-logo-glow hover:-translate-y-0.5">Connect Now</a>
             </div>
             
-            <button id="menu-btn" class="md:hidden text-slate-400 hover:text-cyber-cyan focus:outline-none interactive transition-transform duration-200 active:scale-90">
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-cyber-cyan focus:outline-none interactive p-2 transition-transform duration-200 active:scale-90">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-cyber-card/95 border-b border-slate-900 px-4 pt-2 pb-4 space-y-2 shadow-xl">
-            <a href="#hero" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 text-sm">Home</a>
-            <a href="#services" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 text-sm">Our Services</a>
-            <a href="#projects" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 text-sm">Sample Projects</a>
-            <a href="#packages" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 text-sm">Our Offers</a>
-            <a href="#about" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 text-sm">Compliance</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 text-sm">Contact</a>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-card/98 border-b border-slate-800 px-6 pt-4 pb-6 space-y-3 shadow-2xl transition-all">
+            <a href="#hero" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Home</a>
+            <a href="#services" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Our Services</a>
+            <a href="#projects" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Sample Projects</a>
+            <a href="#packages" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Our Offers</a>
+            <a href="#about" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Compliance</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center bg-gradient-to-r from-cyber-blue to-cyber-purple text-white py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-logo-glow">Connect Now</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative pt-20 pb-16 lg:pt-32 lg:pb-28 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-6 max-w-xl">
-            
-                <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight text-white">
+    <section id="hero" class="relative pt-16 pb-12 sm:pt-20 sm:pb-16 lg:pt-32 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10 text-center md:text-left">
+            <div class="space-y-6 max-w-xl mx-auto md:mx-0">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
                     Smart & Accessible <span class="bg-gradient-to-r from-cyber-blue via-cyber-cyan to-cyber-purple bg-clip-text text-transparent">Software Solutions</span>
                 </h1>
-                <p class="text-md sm:text-lg font-medium text-cyber-cyan tracking-wide border-l-2 border-cyber-blue pl-4 py-0.5">
+                <p class="text-sm sm:text-base lg:text-lg font-medium text-cyber-cyan tracking-wide">
                     Smart Solutions, Care That Connects The Future.
                 </p>
-                <p class="text-slate-400 leading-relaxed text-sm">
+                <p class="text-slate-400 leading-relaxed text-xs sm:text-sm">
                     AiSoftCare builds professional websites, custom business software, and functional applications designed to optimize your everyday operations and clear away technical complexity.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center md:justify-start">
                     <a href="#packages" class="interactive bg-gradient-to-r from-cyber-blue to-cyber-purple text-white font-bold px-6 py-3.5 rounded-xl text-xs tracking-wider uppercase text-center transition-all duration-300 shadow-logo-glow hover:brightness-110 hover:-translate-y-0.5">Explore Our Offers</a>
                     <a href="#services" class="interactive bg-cyber-card hover:bg-slate-800 text-slate-300 border border-slate-800 px-6 py-3.5 rounded-xl text-xs tracking-wider uppercase text-center transition-all duration-300 hover:border-cyber-cyan/40">View Services</a>
                 </div>
             </div>
             
-            <div class="relative flex justify-center items-center">
-                <div class="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full border border-dashed border-cyber-blue/30 flex items-center justify-center animate-[spin_180s_linear_infinite]">
+            <!-- Hero Center Animated Logo Graphic -->
+            <div class="relative flex justify-center items-center mt-6 md:mt-0">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border border-dashed border-cyber-blue/30 flex items-center justify-center animate-[spin_180s_linear_infinite]">
                     <div class="absolute inset-0 rounded-full border border-cyber-purple/20 scale-90 animate-[spin_60s_linear_infinite_reverse]"></div>
                 </div>
-                <div class="absolute p-3 bg-cyber-card rounded-3xl border border-cyber-blue/40 shadow-logo-glow overflow-hidden w-72 h-72 sm:w-85 sm:h-85 flex items-center justify-center transition-transform duration-500 hover:scale-[1.03]">
-                    <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Main Brand Identity" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60';" class="w-full h-full object-contain rounded-2xl bg-cyber-dark">
+                <div class="absolute p-3 bg-cyber-card rounded-3xl border border-cyber-cyan/40 animated-center-logo overflow-hidden w-56 h-56 sm:w-72 sm:h-72 lg:w-85 lg:h-85 flex items-center justify-center cursor-pointer interactive">
+                    <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Brand Identity" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60';" class="w-full h-full object-contain rounded-2xl bg-cyber-dark transition-transform duration-500 hover:scale-105">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-cyber-card/40 border-y border-slate-950 relative">
+    <section id="services" class="py-16 lg:py-20 bg-cyber-card/40 border-y border-slate-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-3">
                 <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-cyan">Core Capabilities</h2>
-                <p class="text-3xl font-black tracking-tight text-white">What We Do</p>
+                <p class="text-2xl sm:text-3xl font-black tracking-tight text-white">What We Do</p>
                 <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-blue to-cyber-cyan mx-auto rounded"></div>
             </div>
             
-            <div class="grid md:grid-cols-4 gap-6">
-                <!-- Service 1 -->
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan hover:-translate-y-1 relative group overflow-hidden">
-                    <div class="h-10 w-10 bg-cyber-card text-cyber-cyan border border-cyber-cyan/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-cyan">
-                        <i class="fa-solid fa-globe"></i>
-                    </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan">
+                    <div class="h-10 w-10 bg-cyber-card text-cyber-cyan border border-cyber-cyan/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-cyan"><i class="fa-solid fa-globe"></i></div>
                     <h3 class="text-base font-bold text-white mb-2">1. Website Development</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Designing fast, clean, and responsive landing pages or multi-page sites to represent your business beautifully online.
-                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed">Designing fast, clean, and responsive landing pages or multi-page sites to represent your business beautifully online.</p>
                 </div>
-                <!-- Service 2 -->
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple hover:-translate-y-1 relative group overflow-hidden">
-                    <div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-purple">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
+                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple">
+                    <div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-purple"><i class="fa-solid fa-laptop-code"></i></div>
                     <h3 class="text-base font-bold text-white mb-2">2. Custom Business Software</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Tailored desktop or internal tools designed to manage billing, track inventories, or automate your repetitive daily work.
-                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed">Tailored desktop or internal tools designed to manage billing, track inventories, or automate your repetitive daily work.</p>
                 </div>
-                <!-- Service 3 -->
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan hover:-translate-y-1 relative group overflow-hidden">
-                    <div class="h-10 w-10 bg-cyber-card text-cyber-blue border border-cyber-blue/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-cyan">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white mb-2">3. Web Applications / Mobile Application</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Building modern web portals and mobile applications that allow users to log in, interact, and access services on any device.
-                    </p>
+                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan">
+                    <div class="h-10 w-10 bg-cyber-card text-cyber-blue border border-cyber-blue/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-cyan"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3 class="text-base font-bold text-white mb-2">3. Web / Mobile Application</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Building modern web portals and mobile applications that allow users to log in, interact, and access services on any device.</p>
                 </div>
-                <!-- Service 4 -->
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple hover:-translate-y-1 relative group overflow-hidden">
-                    <div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-purple">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
+                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple">
+                    <div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5 shadow-neon-purple"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <h3 class="text-base font-bold text-white mb-2">4. Maintenance & Support</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Keeping your code updated, fixing bug errors, protecting database backups, and ensuring your systems stay completely active.
-                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed">Keeping your code updated, fixing bug errors, protecting database backups, and ensuring your systems stay active.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sample Projects Section -->
-    <section id="projects" class="py-20 relative">
+    <section id="projects" class="py-16 lg:py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-3">
                 <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-cyan">Real-Life Blueprints</h2>
-                <p class="text-3xl font-black tracking-tight text-white">Our Sample Projects</p>
-                <p class="text-slate-400 text-xs">Take a look at practical, real-life examples of everyday software platforms we design and support.</p>
+                <p class="text-2xl sm:text-3xl font-black tracking-tight text-white">Our Sample Projects</p>
                 <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-blue to-cyber-purple mx-auto rounded"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Project 1: Online Daig Ordering System -->
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-cyber-blue/40 group">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&auto=format&fit=crop&q=60" alt="Online Daig Ordering Hub Preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-cyber-card to-transparent"></div>
+                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&auto=format&fit=crop&q=60" alt="Project 1" class="w-full h-full object-cover opacity-80">
                         </div>
                         <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/20 px-2.5 py-1 rounded">Web Application</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/20 px-2.5 py-1 rounded">Web App</span>
                             <h3 class="text-base font-bold text-white pt-2">Online Daig Ordering System</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">A digital catering solution allowing clients to seamlessly customize, schedule, and track bulk traditional culinary orders (Daigs) with instant pricing metrics and automated delivery dispatch notes.</p>
+                            <p class="text-slate-400 text-xs leading-relaxed">A digital catering solution allowing clients to customize and track bulk traditional food orders.</p>
                         </div>
                     </div>
-                  
                 </div>
-
-                <!-- Project 2: Mart Inventory System -->
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-cyber-purple/40 group">
+                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=500&auto=format&fit=crop&q=60" alt="Mart Inventory Management Dashboard Preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-cyber-card to-transparent"></div>
+                            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=500&auto=format&fit=crop&q=60" alt="Project 2" class="w-full h-full object-cover opacity-80">
                         </div>
                         <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-2.5 py-1 rounded">Custom Business Software</span>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-2.5 py-1 rounded">Software</span>
                             <h3 class="text-base font-bold text-white pt-2">Mart Inventory System</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">A complete operational layout built for retail marts to handle thousands of product lines, verify batch stock statuses, automate barcode logs, and print itemized daily sales ledgers.</p>
+                            <p class="text-slate-400 text-xs leading-relaxed">Complete retail management layout to handle thousands of product lines and barcode logs.</p>
                         </div>
                     </div>
-                  
                 </div>
-
-                <!-- Project 3: E-Commerce Brand Landing Page -->
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-cyber-blue/40 group">
+                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500&auto=format&fit=crop&q=60" alt="E-Commerce Brand Landing Page Preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-cyber-card to-transparent"></div>
+                            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500&auto=format&fit=crop&q=60" alt="Project 3" class="w-full h-full object-cover opacity-80">
                         </div>
                         <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-blue bg-cyber-blue/10 border border-cyber-blue/20 px-2.5 py-1 rounded">Website Development</span>
-                            <h3 class="text-base font-bold text-white pt-2">Premium Perfume Brand Landing Page </h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">A premium conversion layout built for specialized digital commerce models to catalog luxury inventories, sync shopping pipelines, and highlight elegant media assets.</p>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-blue bg-cyber-blue/10 border border-cyber-blue/20 px-2.5 py-1 rounded">Website</span>
+                            <h3 class="text-base font-bold text-white pt-2">Premium Perfume Brand</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">High-conversion layout built for specialized digital commerce models and fragrance houses.</p>
                         </div>
                     </div>
-                   <button class="btn" onclick="window.open('https://ahmad-ali-soomro.github.io/www.avela_fragrances.com/', '_blank');">
-    Open Website
-</button>
+                    <div class="p-6 pt-0">
+                        <button class="w-full btn !min-w-0" onclick="window.open('https://ahmad-ali-soomro.github.io/www.avela_fragrances.com/', '_blank');">Open Website</button>
+                    </div>
                 </div>
-
-                <!-- Project 4: Patient Care Portal -->
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden relative flex flex-col justify-between transition-all duration-300 hover:border-cyber-purple/40 group">
+                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=60" alt="Healthcare Sync Protocol Dashboard Preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                            <div class="absolute inset-0 bg-gradient-to-t from-cyber-card to-transparent"></div>
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=60" alt="Project 4" class="w-full h-full object-cover opacity-80">
                         </div>
                         <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-2.5 py-1 rounded">Web & Mobile Apps</span>
-                            <h3 class="text-base font-bold text-white pt-2">Patient Care Management Portal </h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">A secure application layer allowing clients to manage profile databases, schedule diagnostic queries, and review operational healthcare logs on any hardware screen.</p>
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-2.5 py-1 rounded">App Suite</span>
+                            <h3 class="text-base font-bold text-white pt-2">Patient Care Management</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">Secure application layer for managing clinical databases and scheduling diagnostic visits.</p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Packages & Offers -->
-    <section id="packages" class="py-20 bg-cyber-card/20 border-t border-slate-950">
+    <section id="packages" class="py-16 lg:py-20 bg-cyber-card/20 border-t border-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-3">
                 <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-purple">Simple & Transparent Plans</h2>
-                <p class="text-3xl font-black tracking-tight text-white">Our Service Packages</p>
+                <p class="text-2xl sm:text-3xl font-black tracking-tight text-white">Our Service Packages</p>
                 <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto rounded"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Offer 1: Basic -->
-                <div class="bg-cyber-card border-2 border-slate-900 rounded-2xl p-6 flex flex-col justify-between relative transition-all duration-300 hover:border-cyber-blue/40">
+                <div class="bg-cyber-card border-2 border-slate-900 rounded-2xl p-6 flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="inline-block bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
-                            Plan 01
-                        </div>
+                        <div class="inline-block bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 01</div>
                         <h3 class="text-xl font-black text-white">Starter Website</h3>
                         <p class="text-slate-400 text-xs leading-relaxed">Perfect for launching a clean online presence to display your brand details.</p>
-                        
-                        <ul class="space-y-2.5 text-xs text-slate-300 pt-2 font-mono">
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>Website Development Setup</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>Responsive Contact Forms</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>30 Days Bug Support</span>
-                            </li>
-                        </ul>
-						
-						<h3>$500</h3>
+                        <div class="text-xl font-bold text-white pt-2">$15,000</div>
                     </div>
                     <div class="pt-6 mt-6 border-t border-slate-900">
                         <a href="#contact" class="interactive block text-center bg-cyber-blue hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase transition">Select Plan</a>
                     </div>
                 </div>
-
-                <!-- Offer 2: Standard -->
-                <div class="bg-cyber-card border-2 border-cyber-cyan/30 rounded-2xl p-6 flex flex-col justify-between relative shadow-neon-cyan transition-all duration-300 hover:border-cyber-cyan">
+                <div class="bg-cyber-card border-2 border-cyber-cyan/30 rounded-2xl p-6 flex flex-col justify-between shadow-neon-cyan">
                     <div class="space-y-4">
-                        <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
-                            Plan 02
-                        </div>
+                        <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 02</div>
                         <h3 class="text-xl font-black text-white">Business Growth</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Built to automate tasks and provide a safe digital tool to handle standard business records.</p>
-                        
-                        <ul class="space-y-2.5 text-xs text-slate-300 pt-2 font-mono">
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>Custom Business Software</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>Data Logging & PDF Exports</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>60 Days Maintenance Shield</span>
-                            </li>
-                        </ul>
-						
-						<h3>$1000</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Built to automate tasks and provide a safe digital tool to handle records.</p>
+                        <div class="text-xl font-bold text-white pt-2">$20,000</div>
                     </div>
                     <div class="pt-6 mt-6 border-t border-slate-900">
-                        <a href="#contact" class="interactive block text-center bg-gradient-to-r from-cyber-blue to-cyber-purple hover:brightness-110 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase transition shadow-logo-glow">Select Plan</a>
+                        <a href="#contact" class="interactive block text-center bg-gradient-to-r from-cyber-blue to-cyber-purple text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase shadow-logo-glow">Select Plan</a>
                     </div>
                 </div>
-
-                <!-- Offer 3: Advanced -->
-                <div class="bg-cyber-card border-2 border-slate-900 rounded-2xl p-6 flex flex-col justify-between relative transition-all duration-300 hover:border-cyber-purple/40">
+                <div class="bg-cyber-card border-2 border-slate-900 rounded-2xl p-6 flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">
-                            Plan 03
-                        </div>
+                        <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 03</div>
                         <h3 class="text-xl font-black text-white">Full Application Suite</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">A complete cloud network linking client accounts across desktop and phone views seamlessly.</p>
-                        
-                        <ul class="space-y-2.5 text-xs text-slate-300 pt-2 font-mono">
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>Web & Mobile App Suite</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>Secure Database Storage</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i class="fa-solid fa-circle-check text-cyber-cyan text-sm"></i>
-                                <span>90 Days Premium Support</span>
-                            </li>
-                        </ul>
-						
-						<h3>$1500</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">A complete cloud network linking client accounts across all devices seamlessly.</p>
+                        <div class="text-xl font-bold text-white pt-2">$50,000</div>
                     </div>
                     <div class="pt-6 mt-6 border-t border-slate-900">
-                        <a href="#contact" class="interactive block text-center bg-cyber-dark hover:bg-slate-800 border border-slate-800 hover:border-cyber-purple text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase transition">Select Plan</a>
+                        <a href="#contact" class="interactive block text-center bg-cyber-dark hover:bg-slate-800 border border-slate-800 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase">Select Plan</a>
                     </div>
                 </div>
             </div>
@@ -441,145 +358,29 @@
     </section>
 
     <!-- Corporate Integrity Section -->
-    <section id="about" class="py-20 bg-cyber-card/20 border-t border-slate-950 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-5">
+    <section id="about" class="py-16 lg:py-20 bg-cyber-card/20 border-t border-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+            <div class="space-y-5 text-center md:text-left">
                 <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-purple">Operational Security Layer</h2>
-                <p class="text-3xl font-black text-white tracking-tight">Structured For Technical Compliance</p>
+                <p class="text-2xl sm:text-3xl font-black text-white tracking-tight">Structured For Technical Compliance</p>
                 <p class="text-slate-400 text-xs leading-relaxed">
-                    Registered strictly as an enterprise sole-member LLC within the United States, AiSoftCare establishes reliable development pipelines. Every digital infrastructure layout follows rigorous network standards and validation simulations before release.
+                    Registered strictly as an enterprise sole-member LLC within the United States, AiSoftCare establishes reliable development pipelines[cite: 1]. Every digital infrastructure follows rigorous validation simulations before release.
                 </p>
-                <div class="grid grid-cols-2 gap-4 pt-2">
-                    <div class="bg-cyber-card border border-slate-900 p-4 rounded-xl">
-                        <div class="text-cyber-cyan font-black text-2xl mb-0.5">100%</div>
-                        <div class="text-[9px] font-mono tracking-wider uppercase text-slate-400">Secure Environment</div>
-                    </div>
-                    <div class="bg-cyber-card border border-slate-900 p-4 rounded-xl">
-                        <div class="text-cyber-purple font-black text-2xl mb-0.5">Zero</div>
-                        <div class="text-[9px] font-mono tracking-wider uppercase text-slate-400">Legacy Friction</div>
-                    </div>
-                </div>
             </div>
-            
             <div class="space-y-4">
-                <div class="interactive bg-cyber-card/70 border border-slate-900 rounded-xl p-5 flex items-start space-x-4 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan">
-                    <div class="p-2.5 bg-cyber-dark text-cyber-cyan rounded-lg border border-cyber-cyan/20 text-sm">
-                        <i class="fa-solid fa-shield-cat"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">Validated Framework Design</h4>
-                        <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">Systems structured under verified technical methodologies to enforce structural security, high availability, and operational safety.</p>
-                    </div>
-                </div>
-                <div class="interactive bg-cyber-card/70 border border-slate-900 rounded-xl p-5 flex items-start space-x-4 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple">
-                    <div class="p-2.5 bg-cyber-dark text-cyber-purple rounded-lg border border-cyber-purple/20 text-sm">
-                        <i class="fa-solid fa-sliders"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">Pre-Deployment Logic Modeling</h4>
-                        <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">Comprehensive integration simulation runtimes are performed to eliminate potential system loops and interface failures.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-	<!-- NEW: Customer Reviews / Testimonials Section (High Converting) -->
-    <section class="py-20 bg-cyber-card/60 border-t border-slate-900 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyber-blue/5 rounded-full blur-[140px] pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-cyan">Verified Feedback</h2>
-                <p class="text-3xl font-black tracking-tight text-white">What Our Clients Say</p>
-                <p class="text-slate-400 text-xs">Real experiences from business owners who scaled their operations with AiSoftCare.</p>
-                <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-blue to-cyber-cyan mx-auto rounded"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="interactive bg-cyber-dark border border-slate-900 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:border-cyber-cyan hover:shadow-neon-cyan relative group">
-                    <div>
-                        <div class="flex items-center space-x-1 text-cyber-cyan text-xs mb-4">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-300 text-xs leading-relaxed italic mb-6">
-                            "AiSoftCare developed our online inventory platform seamlessly. The performance is blazing fast, and their team handled every single custom database requirement precisely. Highly recommended for any serious business!"
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3 pt-4 border-t border-slate-900">
-                        <div class="h-10 w-10 rounded-full bg-cyber-card border border-cyber-cyan/30 flex items-center justify-center font-bold text-cyber-cyan text-sm">
-                            JD
-                        </div>
-                        <div>
-                            <h4 class="text-white text-xs font-bold">Jonathan Davis</h4>
-                            <p class="text-[10px] text-slate-500 font-mono">Retail Mart Owner, US</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 2 -->
-                <div class="interactive bg-cyber-dark border border-slate-900 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple relative group">
-                    <div>
-                        <div class="flex items-center space-x-1 text-cyber-purple text-xs mb-4">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-300 text-xs leading-relaxed italic mb-6">
-                            "We hired them to build our e-commerce landing page layout. The conversion rate jumped up immediately after launch. Their focus on clean UI and responsive mobile design is truly top-notch."
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3 pt-4 border-t border-slate-900">
-                        <div class="h-10 w-10 rounded-full bg-cyber-card border border-cyber-purple/30 flex items-center justify-center font-bold text-cyber-purple text-sm">
-                            AS
-                        </div>
-                        <div>
-                            <h4 class="text-white text-xs font-bold">Aaliyah Sheikh</h4>
-                            <p class="text-[10px] text-slate-500 font-mono">Brand Founder</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="interactive bg-cyber-dark border border-slate-900 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan relative group">
-                    <div>
-                        <div class="flex items-center space-x-1 text-cyber-cyan text-xs mb-4">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-300 text-xs leading-relaxed italic mb-6">
-                            "Professional software engineering at its best. They delivered our full-stack web application ahead of schedule with zero bugs. Outstanding communication and reliable maintenance support."
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3 pt-4 border-t border-slate-900">
-                        <div class="h-10 w-10 rounded-full bg-cyber-card border border-cyber-blue/30 flex items-center justify-center font-bold text-cyber-cyan text-sm">
-                            MR
-                        </div>
-                        <div>
-                            <h4 class="text-white text-xs font-bold">Marcus Reynolds</h4>
-                            <p class="text-[10px] text-slate-500 font-mono">Operations Director</p>
-                        </div>
-                    </div>
+                <div class="bg-cyber-card/70 border border-slate-900 rounded-xl p-5">
+                    <h4 class="font-bold text-white text-sm">Validated Framework Design</h4>
+                    <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">Systems structured under verified technical methodologies to enforce structural security and high availability.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Direct Contact Details Section -->
-    <section id="contact" class="py-20 bg-cyber-card/40 border-t border-slate-950">
+    <section id="contact" class="py-16 lg:py-20 bg-cyber-card/40 border-t border-slate-950">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 space-y-2">
-                <h2 class="text-3xl font-black text-white tracking-tight">Get In Touch</h2>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Get In Touch</h2>
                 <p class="text-slate-400 text-xs">Reach out directly via our secure communication networks. Our team responds within 24 operational hours.</p>
             </div>
             
@@ -590,7 +391,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg font-bold text-white">Secure Email Inbox</h3>
-                        <p class="text-slate-400 text-xs font-mono mt-1">aisoftcarellc1@gmail.com</p>
+                        <p class="text-slate-400 text-xs font-mono mt-1 break-all">aisoftcarellc1@gmail.com</p>
                     </div>
                     <span class="text-[10px] font-mono font-bold tracking-widest text-cyber-cyan uppercase pt-2">Send Mail &rarr;</span>
                 </a>
@@ -604,54 +405,28 @@
                         <p class="text-slate-400 text-xs mt-1">Connect instantly across our verified business architectures.</p>
                     </div>
                     <div class="flex items-center space-x-4 pt-2 text-md">
-                        <a href="https://www.facebook.com/share/1EBgKuaTMq/" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-cyan border border-slate-900 transition-all">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/aisoftcarellc?igsh=MXF2dmEycG52dDMzbQ==" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-purple border border-slate-900 transition-all">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/aisoftcare/" target="_blank" rel="noopener noreferrer" class="interactive p-2 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-blue border border-slate-900 transition-all">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
+                        <a href="https://www.facebook.com/share/1EBgKuaTMq/" target="_blank" rel="noopener noreferrer" class="interactive p-2.5 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-cyan border border-slate-900 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/aisoftcarellc?igsh=MXF2dmEycG52dDMzbQ==" target="_blank" rel="noopener noreferrer" class="interactive p-2.5 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-purple border border-slate-900 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/aisoftcare/" target="_blank" rel="noopener noreferrer" class="interactive p-2.5 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-blue border border-slate-900 transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-	
-
-  <footer class="bg-cyber-card border-t border-slate-900 text-slate-400 pt-16 pb-12 relative overflow-hidden">
-        <!-- Glow decoration -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-24 bg-cyber-cyan/5 rounded-full blur-[100px] pointer-events-none"></div>
-        
+    <!-- Modern Enhanced Footer -->
+    <footer class="bg-cyber-card border-t border-slate-900 text-slate-400 pt-16 pb-12 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
-                <!-- Brand Info -->
-                <div class="space-y-4 md:col-span-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-slate-900 text-center sm:text-left">
+                <div class="space-y-4 md:col-span-1 flex flex-col items-center sm:items-start">
                     <div class="flex items-center space-x-3">
-                        <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Brandmark Footer" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=50&auto=format&fit=crop&q=60';" class="h-8 w-8 rounded-full object-cover border border-cyber-cyan/30 shadow-neon-cyan">
+                        <img src="aisoftcare-logo.jpeg" alt="Logo" class="h-8 w-8 rounded-full object-cover border border-cyber-cyan/30 shadow-neon-cyan">
                         <span class="text-lg font-black tracking-widest text-white">AiSoftCare</span>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Smart Solutions, Care That Connects The Future. Delivering high-performance software systems and tailored digital architectures.
-                    </p>
-                    <div class="flex items-center space-x-3 pt-2">
-                        <a href="https://www.facebook.com/share/1EBgKuaTMq/" target="_blank" rel="noopener noreferrer" class="interactive h-8 w-8 rounded-lg bg-cyber-dark border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyber-cyan hover:border-cyber-cyan/40 transition">
-                            <i class="fa-brands fa-facebook-f text-xs"></i>
-                        </a>
-                        <a href="https://www.instagram.com/aisoftcarellc?igsh=MXF2dmEycG52dDMzbQ==" target="_blank" rel="noopener noreferrer" class="interactive h-8 w-8 rounded-lg bg-cyber-dark border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyber-purple hover:border-cyber-purple/40 transition">
-                            <i class="fa-brands fa-instagram text-xs"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/aisoftcare/" target="_blank" rel="noopener noreferrer" class="interactive h-8 w-8 rounded-lg bg-cyber-dark border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyber-blue hover:border-cyber-blue/40 transition">
-                            <i class="fa-brands fa-linkedin-in text-xs"></i>
-                        </a>
-                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Smart Solutions, Care That Connects The Future. Delivering high-performance software systems.</p>
                 </div>
-
-                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4 border-l-2 border-cyber-cyan pl-2">Navigation</h4>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigation</h4>
                     <ul class="space-y-2.5 text-xs">
                         <li><a href="#hero" class="hover:text-cyber-cyan transition">Home Page</a></li>
                         <li><a href="#services" class="hover:text-cyber-cyan transition">Our Core Services</a></li>
@@ -659,10 +434,8 @@
                         <li><a href="#packages" class="hover:text-cyber-cyan transition">Pricing & Offers</a></li>
                     </ul>
                 </div>
-
-                <!-- Services Links -->
                 <div>
-                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4 border-l-2 border-cyber-purple pl-2">Capabilities</h4>
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Capabilities</h4>
                     <ul class="space-y-2.5 text-xs">
                         <li><a href="#services" class="hover:text-cyber-purple transition">Website Development</a></li>
                         <li><a href="#services" class="hover:text-cyber-purple transition">Custom Software</a></li>
@@ -670,13 +443,11 @@
                         <li><a href="#services" class="hover:text-cyber-purple transition">Maintenance Support</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact & Location info -->
-                <div class="space-y-3">
-                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4 border-l-2 border-cyber-blue pl-2">Direct Contact</h4>
+                <div class="space-y-3 flex flex-col items-center sm:items-start">
+                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Direct Contact</h4>
                     <p class="text-xs text-slate-400 flex items-center space-x-2">
                         <i class="fa-solid fa-envelope text-cyber-cyan"></i>
-                        <span class="font-mono">aisoftcarellc1@gmail.com</span>
+                        <span class="font-mono break-all">aisoftcarellc1@gmail.com</span>
                     </p>
                     <p class="text-xs text-slate-400 flex items-center space-x-2">
                         <i class="fa-solid fa-shield-halved text-cyber-purple"></i>
@@ -684,17 +455,73 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Bottom Copyright bar -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                <p class="text-[11px] font-mono tracking-wide text-slate-500 text-center sm:text-left">&copy; 2026 AiSoftCare LLC. All structural nodes protected.[cite: 1]</p>
-                <div class="flex space-x-6 text-[11px] text-slate-500">
-                    <a href="#contact" class="hover:text-slate-300 transition">Privacy Policy</a>
-                    <a href="#contact" class="hover:text-slate-300 transition">Terms of Service</a>
-                </div>
+                <p class="text-[11px] font-mono tracking-wide text-slate-500 text-center sm:text-left">&copy; 2026 AiSoftCare LLC. All structural nodes protected[cite: 1].</p>
             </div>
         </div>
     </footer>
+
+    <!-- Bottom Right Floating Integration: WhatsApp (+92 330 0389247) & Smart Persuasive AI Chatbot -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-3">
+        
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/923300389247?text=Hello%20AiSoftCare,%20I%20want%20to%20discuss%20my%20project%20requirements%20with%20your%20expert%20team." target="_blank" rel="noopener noreferrer" class="interactive bg-emerald-500 hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110 group relative" title="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span class="absolute right-14 bg-cyber-card text-white text-[10px] font-mono px-2.5 py-1 rounded-md border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">Chat on WhatsApp</span>
+        </a>
+
+        <!-- Chatbot Toggle Button -->
+        <button id="chatbot-toggle-btn" class="interactive bg-gradient-to-r from-cyber-blue to-cyber-purple text-white w-14 h-14 rounded-full flex items-center justify-center shadow-logo-glow transition-all duration-300 hover:scale-110 relative group">
+            <i id="chatbot-icon" class="fa-solid fa-comment-dots text-xl"></i>
+            <span class="absolute right-16 bg-cyber-card text-white text-[10px] font-mono px-2.5 py-1 rounded-md border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">Ask AI Assistant</span>
+        </button>
+
+        <!-- Chatbot Window Box -->
+        <div id="chatbot-window" class="hidden w-80 sm:w-96 bg-cyber-card border border-cyber-cyan/30 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right">
+            <!-- Chat Header -->
+            <div class="bg-cyber-dark px-4 py-3.5 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center space-x-2.5">
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full absolute -top-0.5 -right-0.5 animate-ping"></div>
+                        <div class="w-8 h-8 rounded-full bg-cyber-card border border-cyber-cyan/40 flex items-center justify-center text-cyber-cyan font-bold text-xs">AI</div>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-xs font-bold tracking-wide">AiSoftCare Expert Advisor</h4>
+                        <p class="text-[10px] text-emerald-400 font-mono">Online • Ready to Convert Your Idea</p>
+                    </div>
+                </div>
+                <button id="chatbot-close-btn" class="text-slate-400 hover:text-white p-1 transition">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages Body -->
+            <div id="chatbot-messages" class="p-4 h-72 overflow-y-auto space-y-3 text-xs bg-cyber-dark/50 flex flex-col">
+                <div class="flex items-start space-x-2">
+                    <div class="w-6 h-6 rounded-full bg-cyber-blue/20 border border-cyber-blue/40 flex items-center justify-center text-cyber-cyan shrink-0 text-[10px]">AI</div>
+                    <div class="bg-cyber-card border border-slate-800 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[80%] leading-relaxed">
+                        Welcome to <strong>AiSoftCare LLC</strong>! 🚀 If you want your product to stand out in the market with exceptional speed and security, you are in the exact right place. What kind of software or website would you like to build?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestion Pills -->
+            <div class="px-3 py-2 bg-cyber-card/80 border-t border-slate-800 flex gap-1.5 overflow-x-auto text-[10px] whitespace-nowrap">
+                <button onclick="sendQuickQuery('I want to build a website')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Build a Website</button>
+                <button onclick="sendQuickQuery('I need custom software')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Custom Software</button>
+                <button onclick="sendQuickQuery('What are your pricing plans?')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Pricing Plans</button>
+            </div>
+
+            <!-- Chat Input Footer -->
+            <p class="px-3 py-1 text-[9px] text-slate-400 bg-cyber-dark/80 text-center border-t border-slate-900">⚡ Guaranteed 3x faster delivery & US-grade quality!</p>
+            <div class="p-3 bg-cyber-dark border-t border-slate-800 flex items-center space-x-2">
+                <input type="text" id="chatbot-input" placeholder="Describe your project here..." class="flex-1 bg-cyber-card border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyber-cyan transition">
+                <button id="chatbot-send-btn" class="bg-gradient-to-r from-cyber-blue to-cyber-purple text-white w-8 h-8 rounded-xl flex items-center justify-center hover:brightness-110 transition shadow-logo-glow shrink-0">
+                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -715,15 +542,12 @@
     <script>
         const cursor = document.getElementById('custom-cursor');
         const dot = document.getElementById('custom-cursor-dot');
-
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
+        let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
         const speed = 0.14; 
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            
             dot.style.left = mouseX + 'px';
             dot.style.top = mouseY + 'px';
         });
@@ -731,37 +555,112 @@
         function animateCursor() {
             let distX = mouseX - cursorX;
             let distY = mouseY - cursorY;
-            
             cursorX += distX * speed;
             cursorY += distY * speed;
-            
             cursor.style.left = cursorX + 'px';
             cursor.style.top = cursorY + 'px';
-            
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
 
-        function syncCursorInteractions() {
-            const interactives = document.querySelectorAll('.interactive');
-            interactives.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.style.width = '46px';
-                    cursor.style.height = '46px';
-                    cursor.style.borderColor = '#8a2be2'; 
-                    cursor.style.backgroundColor = 'rgba(138, 43, 226, 0.1)';
-                    cursor.style.boxShadow = '0 0 20px rgba(138, 43, 226, 0.5)';
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.style.width = '22px';
-                    cursor.style.height = '22px';
-                    cursor.style.borderColor = '#00f0ff'; 
-                    cursor.style.backgroundColor = 'transparent';
-                    cursor.style.boxShadow = '0 0 10px rgba(0, 240, 255, 0.4);';
-                });
+        document.querySelectorAll('.interactive').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '46px';
+                cursor.style.height = '46px';
+                cursor.style.borderColor = '#8a2be2'; 
+                cursor.style.backgroundColor = 'rgba(138, 43, 226, 0.1)';
             });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '22px';
+                cursor.style.height = '22px';
+                cursor.style.borderColor = '#00f0ff'; 
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
+
+    <!-- Persuasive AI Chatbot Logic Script (English Only) -->
+    <script>
+        const toggleBtn = document.getElementById('chatbot-toggle-btn');
+        const closeBtn = document.getElementById('chatbot-close-btn');
+        const chatWindow = document.getElementById('chatbot-window');
+        const chatMessages = document.getElementById('chatbot-messages');
+        const chatInput = document.getElementById('chatbot-input');
+        const sendBtn = document.getElementById('chatbot-send-btn');
+
+        toggleBtn.addEventListener('click', () => {
+            chatWindow.classList.toggle('hidden');
+            if(!chatWindow.classList.contains('hidden')) {
+                chatInput.focus();
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            chatWindow.classList.add('hidden');
+        });
+
+        function appendMessage(sender, text) {
+            const isUser = sender === 'user';
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-start space-x-2 ${isUser ? 'justify-end' : ''}`;
+            
+            if(isUser) {
+                messageDiv.innerHTML = `
+                    <div class="bg-gradient-to-r from-cyber-blue to-cyber-purple text-white p-3 rounded-xl rounded-tr-none max-w-[80%] leading-relaxed">
+                        ${text}
+                    </div>
+                    <div class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 shrink-0 text-[10px]">You</div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="w-6 h-6 rounded-full bg-cyber-blue/20 border border-cyber-blue/40 flex items-center justify-center text-cyber-cyan shrink-0 text-[10px]">AI</div>
+                    <div class="bg-cyber-card border border-slate-800 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[80%] leading-relaxed">
+                        ${text}
+                    </div>
+                `;
+            }
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-        syncCursorInteractions();
+
+        function handleBotResponse(query) {
+            const q = query.toLowerCase();
+            let response = "That sounds like a brilliant idea! Premium quality and lightning-fast performance are exclusively delivered by **AiSoftCare**. Going with inexperienced developers will only lead to bugs and delays. Connect with our expert directly on WhatsApp (+92 330 0389247) right now to secure your project slot!";
+            
+            if(q.includes('website') || q.includes('landing') || q.includes('site')) {
+                response = "A professional website is your business's vital first impression. Choosing cheap or local developers results in sluggish performance and lost customers. AiSoftCare's US-standard responsive websites scale your business 10x. Starter plans begin at just $15,000! Click here to chat on WhatsApp (+92 330 0389247) and book your slot.";
+            } else if(q.includes('software') || q.includes('system') || q.includes('inventory') || q.includes('app')) {
+                response = "Custom software and inventory systems require immaculate database architecture handled strictly by expert engineers. AiSoftCare has proven blueprints (such as Daig & Inventory Management Systems). Settling for less risks your data security. Trust us for 100% security guarantees. Reach out directly via WhatsApp (+92 330 0389247)!";
+            } else if(q.includes('price') || q.includes('cost') || q.includes('plan') || q.includes('budget') || q.includes('package')) {
+                response = "We never compromise on quality because cheap work ends up costing more in the long run. Our packages ($15,000 to $50,000) are completely transparent and include complimentary maintenance and bug support. Share your budget with us on WhatsApp (+92 330 0389247), and we will tailor a custom package for you!";
+            } else if(q.includes('contact') || q.includes('whatsapp') || q.includes('number') || q.includes('talk')) {
+                response = "You are on the right track! Don't waste another minute—chat with our team directly on WhatsApp using this link: <a href='https://wa.me/923300389247?text=Hello%20AiSoftCare,%20I%20want%20to%20discuss%20my%20project.' target='_blank' class='text-emerald-400 underline font-bold'>+92 330 0389247</a>. Partnering with us guarantees priority delivery and VIP support!";
+            }
+
+            setTimeout(() => {
+                appendMessage('bot', response);
+            }, 600);
+        }
+
+        function submitUserMessage() {
+            const text = chatInput.value.trim();
+            if(!text) return;
+            appendMessage('user', text);
+            chatInput.value = '';
+            handleBotResponse(text);
+        }
+
+        sendBtn.addEventListener('click', submitUserMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                submitUserMessage();
+            }
+        });
+
+        window.sendQuickQuery = function(queryText) {
+            appendMessage('user', queryText);
+            handleBotResponse(queryText);
+        }
     </script>
 </body>
 </html>
