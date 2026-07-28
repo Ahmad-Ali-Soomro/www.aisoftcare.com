@@ -97,34 +97,6 @@
             box-shadow: 0 15px 35px rgba(0, 140, 255, .55);
             background: linear-gradient(135deg, #008CFF, #005BFF);
         }
-
-        /* Custom Logo Pulse & Float Animations */
-        @keyframes floatLogo {
-            0%, 100% {
-                transform: translateY(0px) scale(1);
-            }
-            50% {
-                transform: translateY(-10px) scale(1.02);
-            }
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% {
-                box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(138, 43, 226, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 50px rgba(0, 240, 255, 0.7), inset 0 0 25px rgba(0, 240, 255, 0.4);
-            }
-        }
-
-        .animated-center-logo {
-            animation: floatLogo 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .animated-center-logo:hover {
-            transform: scale(1.1) rotate(2deg);
-        }
     </style>
 </head>
 <body class="bg-cyber-dark text-slate-200 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-dark overflow-x-hidden relative tech-grid">
@@ -199,13 +171,10 @@
                 </div>
             </div>
             
-            <!-- Hero Center Animated Logo Graphic -->
+            <!-- Hero Center Image Graphic (Larger Size, Zero Padding, Edge Blended) -->
             <div class="relative flex justify-center items-center mt-6 md:mt-0">
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border border-dashed border-cyber-blue/30 flex items-center justify-center animate-[spin_180s_linear_infinite]">
-                    <div class="absolute inset-0 rounded-full border border-cyber-purple/20 scale-90 animate-[spin_60s_linear_infinite_reverse]"></div>
-                </div>
-                <div class="absolute p-3 bg-cyber-card rounded-3xl border border-cyber-cyan/40 animated-center-logo overflow-hidden w-56 h-56 sm:w-72 sm:h-72 lg:w-85 lg:h-85 flex items-center justify-center cursor-pointer interactive">
-                    <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Brand Identity" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60';" class="w-full h-full object-contain rounded-2xl bg-cyber-dark transition-transform duration-500 hover:scale-105">
+                <div class="p-0 bg-cyber-dark rounded-3xl border border-cyber-cyan/40 shadow-neon-cyan overflow-hidden w-full max-w-xl flex items-center justify-center">
+                    <img src="BLUE_NEON.png" alt="AiSoftCare Cloud City Infrastructure" class="w-full h-auto object-cover rounded-3xl bg-cyber-dark block m-0 p-0">
                 </div>
             </div>
         </div>
@@ -347,7 +316,7 @@
                         <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 03</div>
                         <h3 class="text-xl font-black text-white">Full Application Suite</h3>
                         <p class="text-slate-400 text-xs leading-relaxed">A complete cloud network linking client accounts across all devices seamlessly.</p>
-                        <div class="text-xl font-bold text-white pt-2">$5000</div>
+                        <div class="text-xl font-bold text-white pt-2">$10,000</div>
                     </div>
                     <div class="pt-6 mt-6 border-t border-slate-900">
                         <a href="#contact" class="interactive block text-center bg-cyber-dark hover:bg-slate-800 border border-slate-800 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase">Select Plan</a>
