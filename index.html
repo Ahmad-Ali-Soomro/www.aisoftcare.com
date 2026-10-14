@@ -1,647 +1,2183 @@
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AiSoftCare | Smart Solutions, Care That Connects The Future.</title>
-    <link rel="icon" type="image/jpeg" href="aisoftcare-logo.jpeg">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            dark: '#030511',     
-                            card: '#080c26',     
-                            blue: '#1e75ff',     
-                            cyan: '#00f0ff',     
-                            purple: '#8a2be2',   
-                        }
-                    },
-                    boxShadow: {
-                        'neon-cyan': '0 0 20px rgba(0, 240, 255, 0.2)',
-                        'neon-purple': '0 0 20px rgba(138, 43, 226, 0.2)',
-                        'logo-glow': '0 0 35px rgba(30, 117, 255, 0.45)'
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @media (min-width: 768px) {
-            body, a, button, select, textarea, input {
-                cursor: none;
-            }
-        }
-        
-        #custom-cursor {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #00f0ff;
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9999;
-            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AiSoftCare LLC provides website development, mobile apps, custom business software, UI/UX design, software testing and digital solutions.">
+<title>AiSoftCare LLC | Smart Software Solutions</title>
+<link rel="icon" href="aisoftcare-logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        #custom-cursor-dot {
-            width: 4px;
-            height: 4px;
-            background-color: #8a2be2;
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .glass {
-            background: rgba(8, 12, 38, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .tech-grid {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(30, 117, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(30, 117, 255, 0.04) 1px, transparent 1px);
-        }
-
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 12px 32px;
-            min-width: 220px;
-            background: linear-gradient(135deg, #00B4FF, #0066FF);
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 50px;
-            border: none;
-            transition: .35s ease;
-            box-shadow: 0 8px 25px rgba(0, 140, 255, .35);
-        }
-
-        .btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 140, 255, .55);
-            background: linear-gradient(135deg, #008CFF, #005BFF);
-        }
-    </style>
+<style>
+:root{
+--bg:#030511;
+--card:#080d25;
+--blue:#1e75ff;
+--cyan:#00eaff;
+--purple:#923bff;
+--white:#f4f8ff;
+--muted:#a4b2cd;
+--line:rgba(112,151,218,.19);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Inter,Arial,sans-serif;
+background:var(--bg);
+color:var(--white);
+overflow-x:hidden;
+}
+body::selection{background:var(--cyan);color:#001020}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+img{max-width:100%;display:block}
+section{position:relative;scroll-margin-top:85px}
+.container{width:min(1180px,92%);margin:auto}
+#illusionCanvas{
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+z-index:-3;
+pointer-events:none;
+}
+.ambient{
+position:fixed;
+inset:0;
+z-index:-2;
+pointer-events:none;
+background:
+radial-gradient(circle at 12% 20%,rgba(0,120,255,.12),transparent 36%),
+radial-gradient(circle at 88% 72%,rgba(145,42,255,.14),transparent 40%);
+}
+.glass{
+background:rgba(6,11,29,.85);
+backdrop-filter:blur(16px);
+border:1px solid var(--line);
+}
+.gradient-text{
+background:linear-gradient(110deg,#4c8dff,#00edff,#bd68ff);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+border:0;
+border-radius:12px;
+padding:14px 23px;
+font-size:13px;
+font-weight:800;
+transition:.25s;
+text-align:center;
+}
+.btn-primary{
+color:white;
+background:linear-gradient(120deg,#1767ff,#8542ee);
+box-shadow:0 7px 26px rgba(30,117,255,.25);
+}
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 32px rgba(30,117,255,.48);
+}
+.btn-outline{
+background:rgba(10,20,44,.75);
+color:#dceaff;
+border:1px solid rgba(87,153,255,.32);
+}
+.btn-outline:hover{
+border-color:var(--cyan);
+transform:translateY(-3px);
+}
+header{
+position:sticky;
+top:0;
+z-index:100;
+background:rgba(4,8,23,.9);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line);
+}
+.navbar{
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{
+width:43px;
+height:43px;
+object-fit:cover;
+border-radius:50%;
+border:1px solid rgba(0,234,255,.45);
+box-shadow:0 0 22px rgba(0,150,255,.28);
+}
+.brand strong{font-size:20px;letter-spacing:1px}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{
+font-size:12px;
+font-weight:700;
+color:#b7c5df;
+transition:.2s;
+}
+.nav-links a:hover{color:var(--cyan)}
+.menu-toggle{
+display:none;
+background:none;
+color:white;
+border:0;
+font-size:23px;
+}
+.hero{
+min-height:620px;
+display:flex;
+align-items:center;
+padding:100px 0;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+.eyebrow{
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
+text-transform:uppercase;
+color:var(--cyan);
+}
+.hero h1{
+font-size:clamp(36px,5vw,64px);
+line-height:1.1;
+letter-spacing:-2px;
+margin:19px 0;
+font-weight:900;
+}
+.hero .tagline{
+font-size:16px;
+font-weight:700;
+color:var(--cyan);
+}
+.hero p{
+font-size:14px;
+line-height:1.9;
+color:var(--muted);
+max-width:560px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.hero-image{
+position:relative;
+border-radius:24px;
+border:1px solid rgba(0,234,255,.4);
+box-shadow:0 0 65px rgba(18,103,255,.2);
+overflow:hidden;
+background:#030511;
+}
+.hero-image img{width:100%;height:auto}
+.hero-image::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:24px;
+box-shadow:inset 0 0 40px rgba(0,234,255,.08);
+pointer-events:none;
+}
+.section-pad{padding:95px 0}
+.section-heading{text-align:center;margin-bottom:48px}
+.section-heading h2{
+font-size:clamp(27px,3vw,38px);
+letter-spacing:-1px;
+margin:12px 0;
+}
+.section-heading p{
+color:var(--muted);
+font-size:13px;
+line-height:1.8;
+max-width:650px;
+margin:0 auto;
+}
+.section-heading::after{
+content:"";
+display:block;
+width:75px;
+height:3px;
+margin:22px auto 0;
+border-radius:5px;
+background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));
+}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:19px;
+}
+.card{
+background:rgba(8,13,37,.84);
+border:1px solid var(--line);
+border-radius:18px;
+transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.card:hover{
+border-color:rgba(0,234,255,.5);
+box-shadow:0 12px 35px rgba(0,130,255,.12);
+}
+.service-card{
+padding:25px;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+min-height:248px;
+}
+.service-icon{
+width:47px;
+height:47px;
+border-radius:12px;
+display:grid;
+place-items:center;
+color:var(--cyan);
+font-size:20px;
+background:rgba(0,234,255,.07);
+border:1px solid rgba(0,234,255,.17);
+margin-bottom:19px;
+}
+.service-card:nth-child(even) .service-icon{
+color:#b47cff;
+background:rgba(146,59,255,.08);
+border-color:rgba(146,59,255,.2);
+}
+.service-card h3{font-size:15px;margin:0 0 10px}
+.service-card p{
+font-size:12px;
+line-height:1.8;
+color:var(--muted);
+margin:0 0 20px;
+flex:1;
+}
+.mini-link{
+border:0;
+background:none;
+color:var(--cyan);
+font-size:11px;
+font-weight:800;
+padding:0;
+}
+.mini-link:hover{text-decoration:underline}
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:23px;
+}
+.project-card{overflow:hidden;display:flex;flex-direction:column}
+.project-card img{
+width:100%;
+height:190px;
+object-fit:cover;
+filter:saturate(.85);
+transition:transform .5s;
+}
+.project-card:hover img{transform:scale(1.05)}
+.project-body{
+padding:24px;
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+}
+.project-type{
+font-size:10px;
+letter-spacing:1px;
+font-weight:800;
+color:var(--cyan);
+text-transform:uppercase;
+}
+.project-body h3{font-size:17px;margin:13px 0}
+.project-body p{
+font-size:12px;
+color:var(--muted);
+line-height:1.8;
+flex:1;
+}
+.project-body .btn{width:100%;margin-top:16px}
+.packages-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+.package{
+padding:27px 22px;
+display:flex;
+flex-direction:column;
+position:relative;
+}
+.package.popular{
+border-color:rgba(0,234,255,.65);
+box-shadow:0 0 32px rgba(0,234,255,.12);
+}
+.popular-label{
+position:absolute;
+top:-13px;
+left:50%;
+transform:translateX(-50%);
+background:linear-gradient(90deg,var(--blue),var(--purple));
+color:white;
+padding:7px 14px;
+border-radius:30px;
+font-size:10px;
+font-weight:800;
+white-space:nowrap;
+}
+.package small{color:var(--cyan);font-size:10px;letter-spacing:1px;font-weight:800}
+.package h3{font-size:20px;margin:17px 0 10px}
+.price{font-size:31px;font-weight:900;margin:10px 0}
+.price.custom{font-size:24px}
+.package .starting{font-size:11px;color:var(--muted)}
+.package p{
+font-size:12px;
+line-height:1.8;
+color:var(--muted);
+}
+.package ul{
+padding:0;
+margin:20px 0;
+list-style:none;
+flex:1;
+}
+.package li{
+font-size:11px;
+color:#b9c9e3;
+margin:0 0 14px;
+line-height:1.5;
+}
+.package li i{color:var(--cyan);margin-right:8px}
+.package .btn{width:100%;padding:13px 9px}
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+align-items:center;
+}
+.about-grid h2{font-size:34px;margin:14px 0}
+.about-grid p{font-size:13px;color:var(--muted);line-height:1.9}
+.process-list{display:grid;gap:14px}
+.process-item{padding:21px}
+.process-item strong{font-size:14px}
+.process-item p{margin:8px 0 0}
+.contact-grid{
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+gap:26px;
+align-items:start;
+}
+.contact-panel,.form-panel{padding:30px}
+.contact-panel h3,.form-panel h3{font-size:21px;margin:0 0 12px}
+.contact-panel p{
+font-size:13px;
+line-height:1.8;
+color:var(--muted);
+}
+.contact-method{
+display:flex;
+gap:13px;
+align-items:center;
+padding:17px 0;
+border-bottom:1px solid var(--line);
+font-size:12px;
+overflow-wrap:anywhere;
+}
+.contact-method i{font-size:20px;color:var(--cyan)}
+.socials{display:flex;gap:12px;margin-top:25px}
+.socials a{
+width:40px;
+height:40px;
+display:grid;
+place-items:center;
+border:1px solid var(--line);
+border-radius:11px;
+background:#0b1530;
+}
+.socials a:hover{color:var(--cyan)}
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;font-weight:700;color:#d2def3}
+.field input,.field select,.field textarea{
+width:100%;
+border:1px solid rgba(123,154,209,.22);
+background:#060c20;
+border-radius:10px;
+padding:13px;
+color:white;
+outline:none;
+font-size:12px;
+}
+.field textarea{min-height:115px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+border-color:var(--cyan);
+box-shadow:0 0 0 3px rgba(0,234,255,.07);
+}
+.field input::placeholder,.field textarea::placeholder{color:#7283a2}
+.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}
+.form-actions .btn{flex:1;min-width:180px}
+.form-note{
+font-size:11px;
+color:var(--muted);
+line-height:1.7;
+margin-top:15px;
+}
+footer{
+background:rgba(5,9,27,.92);
+border-top:1px solid var(--line);
+padding:55px 0 25px;
+}
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1.5fr;
+gap:30px;
+}
+footer h4{font-size:13px;margin:0 0 20px}
+footer p,footer a{
+font-size:12px;
+color:var(--muted);
+line-height:2;
+}
+footer a:hover{color:var(--cyan)}
+.footer-links{display:flex;flex-direction:column}
+.copyright{
+border-top:1px solid var(--line);
+margin-top:35px;
+padding-top:22px;
+text-align:center;
+font-size:11px;
+color:#7f8ca9;
+}
+.float-actions{
+position:fixed;
+bottom:23px;
+right:22px;
+z-index:110;
+display:flex;
+flex-direction:column;
+gap:12px;
+align-items:flex-end;
+}
+.float-btn{
+width:53px;
+height:53px;
+display:grid;
+place-items:center;
+border:0;
+border-radius:50%;
+color:white;
+font-size:23px;
+box-shadow:0 8px 25px rgba(0,0,0,.3);
+transition:.2s;
+}
+.float-btn:hover{transform:scale(1.08)}
+.whatsapp{background:#21b45b}
+.chat-toggle{
+background:linear-gradient(135deg,var(--blue),var(--purple));
+}
+.chat-window{
+width:370px;
+max-width:calc(100vw - 30px);
+height:490px;
+max-height:calc(100dvh - 150px);
+background:#070d23;
+border:1px solid rgba(0,234,255,.35);
+border-radius:19px;
+box-shadow:0 18px 55px rgba(0,0,0,.55);
+display:none;
+flex-direction:column;
+overflow:hidden;
+}
+.chat-window.open{display:flex}
+.chat-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px;
+background:#05091a;
+border-bottom:1px solid var(--line);
+}
+.chat-header strong{font-size:13px}
+.chat-header small{display:block;color:#8aeeae;font-size:10px;margin-top:5px}
+.chat-header button{background:none;color:#dbe9ff;border:0;font-size:18px}
+.chat-messages{
+flex:1;
+overflow:auto;
+padding:15px;
+display:flex;
+flex-direction:column;
+gap:13px;
+}
+.message{
+font-size:12px;
+line-height:1.7;
+padding:12px;
+border-radius:12px;
+max-width:90%;
+overflow-wrap:anywhere;
+white-space:pre-wrap;
+}
+.message.bot{
+background:#101a37;
+border:1px solid var(--line);
+align-self:flex-start;
+}
+.message.user{
+background:linear-gradient(120deg,#1657c8,#7037ba);
+align-self:flex-end;
+}
+.quick-replies{
+padding:9px;
+display:flex;
+gap:7px;
+overflow-x:auto;
+border-top:1px solid var(--line);
+}
+.quick-replies button{
+background:#111b38;
+border:1px solid var(--line);
+color:#c8d6ed;
+padding:7px 10px;
+border-radius:20px;
+font-size:10px;
+white-space:nowrap;
+}
+.chat-input-row{
+display:flex;
+gap:8px;
+padding:12px;
+border-top:1px solid var(--line);
+}
+.chat-input-row input{
+flex:1;
+min-width:0;
+background:#0b1530;
+border:1px solid var(--line);
+border-radius:9px;
+padding:11px;
+font-size:12px;
+color:white;
+outline:none;
+}
+.chat-input-row button{
+width:39px;
+border:0;
+border-radius:9px;
+background:linear-gradient(120deg,var(--blue),var(--purple));
+color:white;
+}
+.chat-disclaimer{
+font-size:9px;
+color:#8493b1;
+text-align:center;
+padding:6px 10px;
+}
+#scrollProgress{
+position:fixed;
+top:0;
+left:0;
+height:3px;
+width:0;
+z-index:200;
+background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));
+}
+.reveal{
+opacity:0;
+transform:translateY(24px);
+transition:opacity .7s,transform .7s;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1050px){
+.services-grid,.packages-grid{grid-template-columns:repeat(2,1fr)}
+.projects-grid{grid-template-columns:repeat(2,1fr)}
+.nav-links{gap:13px}
+}
+@media(max-width:760px){
+.menu-toggle{display:block}
+.nav-links{
+display:none;
+position:absolute;
+top:78px;
+left:0;
+right:0;
+padding:20px 5%;
+background:#070c21;
+border-bottom:1px solid var(--line);
+flex-direction:column;
+align-items:stretch;
+gap:0;
+}
+.nav-links.open{display:flex}
+.nav-links a{padding:12px}
+.navbar>.btn{display:none}
+.hero{padding:70px 0}
+.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+.hero h1{letter-spacing:-1px}
+.hero-image{max-width:520px;margin:auto}
+.section-pad{padding:70px 0}
+.footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:540px){
+.services-grid,.projects-grid,.packages-grid,.form-grid{grid-template-columns:1fr}
+.field.full{grid-column:auto}
+.footer-grid{grid-template-columns:1fr}
+.contact-panel,.form-panel{padding:22px}
+.hero-actions .btn{width:100%}
+.float-actions{right:13px;bottom:13px}
+.chat-window{width:calc(100vw - 26px)}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.reveal{opacity:1;transform:none;transition:none}
+*,*::before,*::after{animation-duration:.01ms!important}
+}
+</style>
 </head>
-<body class="bg-cyber-dark text-slate-200 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-dark overflow-x-hidden relative tech-grid">
 
-    <!-- Custom Cursor Elements -->
-    <div id="custom-cursor" class="hidden md:block"></div>
-    <div id="custom-cursor-dot" class="hidden md:block"></div>
+<body>
 
-    <!-- Background Ambience Nodes -->
-    <div class="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-cyber-blue/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
-    <div class="absolute top-[40%] right-10 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-cyber-purple/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen"></div>
+<canvas id="illusionCanvas" aria-hidden="true"></canvas>
+<div class="ambient"></div>
+<div id="scrollProgress"></div>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 glass border-b border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#hero" class="flex items-center space-x-3 group interactive transition-transform duration-300 hover:scale-105">
-                <div class="relative flex items-center justify-center">
-                    <div class="absolute inset-0 bg-gradient-to-r from-cyber-blue to-cyber-purple rounded-full blur opacity-50 group-hover:opacity-80 transition duration-300"></div>
-                    <img src="aisoftcare-logo.jpeg" alt="AiSoftCare Logo Header" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60';" class="h-10 w-10 rounded-full relative border border-cyber-cyan/40 object-cover">
-                </div>
-                <span class="text-lg sm:text-xl font-black tracking-widest bg-gradient-to-r from-white via-cyber-cyan to-cyber-purple bg-clip-text text-transparent">AiSoftCare</span>
-            </a>
-            
-            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-medium text-slate-400 text-sm tracking-wide">
-                <a href="#hero" class="hover:text-cyber-cyan transition duration-300 interactive">Home</a>
-                <a href="#services" class="hover:text-cyber-cyan transition duration-300 interactive">Our Services</a>
-                <a href="#projects" class="hover:text-cyber-cyan transition duration-300 interactive">Sample Projects</a>
-                <a href="#packages" class="hover:text-cyber-cyan transition duration-300 interactive">Our Offers</a>
-                <a href="#about" class="hover:text-cyber-cyan transition duration-300 interactive">Compliance</a>
-                <a href="#contact" class="hover:text-cyber-cyan transition duration-300 interactive">Contact</a>
-            </nav>
+<!-- HEADER -->
+<header>
+<div class="container navbar">
+<a href="#home" class="brand">
+<img src="aisoftcare-logo.jpeg" alt="AiSoftCare original logo">
+<strong class="gradient-text">AiSoftCare</strong>
+</a>
 
-            <div class="hidden md:block">
-                <a href="#contact" class="interactive inline-block bg-gradient-to-r from-cyber-blue to-cyber-purple text-white px-4 lg:px-5 py-2 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:shadow-logo-glow hover:-translate-y-0.5">Connect Now</a>
-            </div>
-            
-            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-cyber-cyan focus:outline-none interactive p-2 transition-transform duration-200 active:scale-90">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
-        </div>
+<nav class="nav-links" id="navLinks" aria-label="Main navigation">
+<a href="#home">Home</a>
+<a href="#services">Our Services</a>
+<a href="#projects">Sample Projects</a>
+<a href="#packages">Our Offers</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cyber-card/98 border-b border-slate-800 px-6 pt-4 pb-6 space-y-3 shadow-2xl transition-all">
-            <a href="#hero" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Home</a>
-            <a href="#services" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Our Services</a>
-            <a href="#projects" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Sample Projects</a>
-            <a href="#packages" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Our Offers</a>
-            <a href="#about" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Compliance</a>
-            <a href="#contact" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800/80 hover:text-cyber-cyan text-sm font-medium">Contact</a>
-            <div class="pt-2">
-                <a href="#contact" class="block text-center bg-gradient-to-r from-cyber-blue to-cyber-purple text-white py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow-logo-glow">Connect Now</a>
-            </div>
-        </div>
-    </header>
+<a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+<i class="fa-solid fa-bars"></i>
+</button>
+</div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative pt-16 pb-12 sm:pt-20 sm:pb-16 lg:pt-32 lg:pb-28 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 lg:gap-12 items-center relative z-10 text-center md:text-left">
-            <div class="space-y-6 max-w-xl mx-auto md:mx-0">
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
-                    Smart & Accessible <span class="bg-gradient-to-r from-cyber-blue via-cyber-cyan to-cyber-purple bg-clip-text text-transparent">Software Solutions</span>
-                </h1>
-                <p class="text-sm sm:text-base lg:text-lg font-medium text-cyber-cyan tracking-wide">
-                    Smart Solutions, Care That Connects The Future.
-                </p>
-                <p class="text-slate-400 leading-relaxed text-xs sm:text-sm">
-                    AiSoftCare designs and develops professional websites, mobile apps, business software and digital experiences that help startups and growing businesses operate smarter and present themselves with confidence.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-center md:justify-start">
-                    <a href="#packages" class="interactive bg-gradient-to-r from-cyber-blue to-cyber-purple text-white font-bold px-6 py-3.5 rounded-xl text-xs tracking-wider uppercase text-center transition-all duration-300 shadow-logo-glow hover:brightness-110 hover:-translate-y-0.5">Explore Our Offers</a>
-                    <a href="#services" class="interactive bg-cyber-card hover:bg-slate-800 text-slate-300 border border-slate-800 px-6 py-3.5 rounded-xl text-xs tracking-wider uppercase text-center transition-all duration-300 hover:border-cyber-cyan/40">View Services</a>
-                </div>
-            </div>
-            
-            <!-- Hero Center Image Graphic (Larger Size, Zero Padding, Edge Blended) -->
-            <div class="relative flex justify-center items-center mt-6 md:mt-0">
-                <div class="p-0 bg-cyber-dark rounded-3xl border border-cyber-cyan/40 shadow-neon-cyan overflow-hidden w-full max-w-xl flex items-center justify-center">
-                    <img src="BLUE_NEON.png" alt="AiSoftCare Cloud City Infrastructure" class="w-full h-auto object-cover rounded-3xl bg-cyber-dark block m-0 p-0">
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">Digital Solutions for Growing Businesses</div>
+<h1>Smart & Accessible <span class="gradient-text">Software Solutions</span></h1>
+<div class="tagline">Smart Solutions, Care That Connects The Future.</div>
+<p>AiSoftCare LLC designs and develops professional websites, mobile applications, business software and digital experiences that help startups and growing businesses operate smarter and present themselves with confidence.</p>
+<div class="hero-actions">
+<a href="#packages" class="btn btn-primary">Explore Our Offers <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#services" class="btn btn-outline">View Services</a>
+</div>
+</div>
+<div class="hero-image">
+<img src="BLUE_NEON.png" alt="AiSoftCare futuristic technology visual">
+</div>
+</div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 lg:py-20 bg-cyber-card/40 border-y border-slate-950 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-3">
-                <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-cyan">Core Capabilities</h2>
-                <p class="text-2xl sm:text-3xl font-black tracking-tight text-white">What We Do</p>
-                <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-blue to-cyber-cyan mx-auto rounded"></div>
-            </div>
-            
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan"><div class="h-10 w-10 bg-cyber-card text-cyber-cyan border border-cyber-cyan/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-globe"></i></div><h3 class="text-base font-bold text-white mb-2">Website Development</h3><p class="text-slate-400 text-xs leading-relaxed">Responsive business websites, landing pages, portfolios and multi-page websites built for speed, clarity and conversion.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple"><div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-mobile-screen-button"></i></div><h3 class="text-base font-bold text-white mb-2">Mobile App Development</h3><p class="text-slate-400 text-xs leading-relaxed">Practical mobile applications for customers, staff and business workflows with clean, easy-to-use interfaces.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan"><div class="h-10 w-10 bg-cyber-card text-cyber-blue border border-cyber-blue/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-laptop-code"></i></div><h3 class="text-base font-bold text-white mb-2">Custom Business Software</h3><p class="text-slate-400 text-xs leading-relaxed">Tailored systems for billing, inventory, records, dashboards and day-to-day operational management.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple"><div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-pen-ruler"></i></div><h3 class="text-base font-bold text-white mb-2">UI/UX Design</h3><p class="text-slate-400 text-xs leading-relaxed">Wireframes and polished interfaces focused on usability, consistency and a professional customer experience.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan"><div class="h-10 w-10 bg-cyber-card text-cyber-cyan border border-cyber-cyan/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-database"></i></div><h3 class="text-base font-bold text-white mb-2">Database Solutions</h3><p class="text-slate-400 text-xs leading-relaxed">Structured databases and data workflows for applications, customer records, products and internal operations.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple"><div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-image"></i></div><h3 class="text-base font-bold text-white mb-2">Image Editing</h3><p class="text-slate-400 text-xs leading-relaxed">Professional image cleanup, resizing, background work and visual optimization for websites and digital content.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-blue hover:shadow-neon-cyan"><div class="h-10 w-10 bg-cyber-card text-cyber-blue border border-cyber-blue/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-vial-circle-check"></i></div><h3 class="text-base font-bold text-white mb-2">Software Testing & QA</h3><p class="text-slate-400 text-xs leading-relaxed">Functional testing, usability checks and bug reporting to help deliver stable, reliable digital products.</p></div>
-                <div class="interactive bg-cyber-dark/90 border border-slate-900 rounded-xl p-6 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple"><div class="h-10 w-10 bg-cyber-card text-cyber-purple border border-cyber-purple/20 rounded-lg flex items-center justify-center text-md mb-5"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3 class="text-base font-bold text-white mb-2">Maintenance & Support</h3><p class="text-slate-400 text-xs leading-relaxed">Updates, bug fixes, content changes and ongoing technical support to keep your website or software running smoothly.</p></div>
-            </div>
-        </div>
-    </section>
+<!-- SERVICES -->
+<section class="section-pad" id="services">
+<div class="container">
+<div class="section-heading">
+<div class="eyebrow">Core Capabilities</div>
+<h2>What We <span class="gradient-text">Do</span></h2>
+<p>Practical digital solutions tailored to the needs of businesses at different stages.</p>
+</div>
+<div class="services-grid" id="servicesGrid"></div>
+</div>
+</section>
 
-    <!-- Sample Projects Section -->
-    <section id="projects" class="py-16 lg:py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-3">
-                <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-cyan">Real-Life Blueprints</h2>
-                <p class="text-2xl sm:text-3xl font-black tracking-tight text-white">Our Sample Projects</p>
-                <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-blue to-cyber-purple mx-auto rounded"></div>
-            </div>
+<!-- PROJECTS -->
+<section class="section-pad" id="projects">
+<div class="container">
+<div class="section-heading">
+<div class="eyebrow">Our Work & Demonstrations</div>
+<h2>Sample <span class="gradient-text">Projects</span></h2>
+<p>Explore examples of business websites, management systems and customer-facing digital solutions.</p>
+</div>
+<div class="projects-grid" id="projectsGrid"></div>
+</div>
+</section>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&auto=format&fit=crop&q=60" alt="Project 1" class="w-full h-full object-cover opacity-80">
-                        </div>
-                        <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/20 px-2.5 py-1 rounded">Web App</span>
-                            <h3 class="text-base font-bold text-white pt-2">Online Daig Ordering System</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">A digital catering solution allowing clients to customize and track bulk traditional food orders.</p>
-                        </div>
-                    </div>
-					<div class="p-6 pt-0">
-                        <button class="w-full btn !min-w-0" onclick="window.open('https://ahmad-ali-soomro.github.io/DaigHub.pk/', '_blank');">Open Website</button>
-                    </div>
-                </div>
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=500&auto=format&fit=crop&q=60" alt="Project 2" class="w-full h-full object-cover opacity-80">
-                        </div>
-                        <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-2.5 py-1 rounded">Software</span>
-                            <h3 class="text-base font-bold text-white pt-2">Mart Inventory System</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">Complete retail management layout to handle thousands of product lines and barcode logs.</p>
-                        </div>
-                    </div>
-					<div class="p-6 pt-0">
-                        <button class="w-full btn !min-w-0" onclick="window.open('https://ahmad-ali-soomro.github.io/Kalash-General-Store/', '_blank');">Open Website</button>
-                    </div>
-                </div>
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500&auto=format&fit=crop&q=60" alt="Project 3" class="w-full h-full object-cover opacity-80">
-                        </div>
-                        <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-blue bg-cyber-blue/10 border border-cyber-blue/20 px-2.5 py-1 rounded">Website</span>
-                            <h3 class="text-base font-bold text-white pt-2">Premium Perfume Brand</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">High-conversion layout built for specialized digital commerce models and fragrance houses.</p>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <button class="w-full btn !min-w-0" onclick="window.open('https://ahmad-ali-soomro.github.io/www.avela_fragrances.com/', '_blank');">Open Website</button>
-                    </div>
-                </div>
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden"><div class="h-48 overflow-hidden relative bg-slate-950"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&auto=format&fit=crop&q=75" alt="Hospital Management System" class="w-full h-full object-cover opacity-80"></div><div class="p-6 space-y-3"><span class="text-[10px] font-mono uppercase tracking-wider text-cyber-cyan bg-cyber-cyan/10 border border-cyber-cyan/20 px-2.5 py-1 rounded">Management System</span><h3 class="text-base font-bold text-white pt-2">Hospital Management System</h3><p class="text-slate-400 text-xs leading-relaxed">A hospital management system developed by AiSoftCare for patient records, doctors and departments, appointments, pharmacy operations, and day-to-day hospital administration.</p></div><div class="p-6 pt-0">
-                        <button class="w-full btn !min-w-0" onclick="window.open('https://ahmad-ali-soomro.github.io/hospital-system/', '_blank');">Open Website</button>
-                    </div></div>
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden"><div class="h-48 overflow-hidden relative bg-slate-950"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&auto=format&fit=crop&q=75" alt="Gym Management System" class="w-full h-full object-cover opacity-80"></div><div class="p-6 space-y-3"><span class="text-[10px] font-mono uppercase tracking-wider text-cyber-purple bg-cyber-purple/10 border border-cyber-purple/20 px-2.5 py-1 rounded">Management System</span><h3 class="text-base font-bold text-white pt-2">Gym Management System</h3><p class="text-slate-400 text-xs leading-relaxed">A modern gym management solution for member profiles, membership plans, attendance, payments, trainer management, workout scheduling, and daily gym operations.</p></div></div>
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&auto=format&fit=crop&q=75" alt="Patient Care Portal" class="w-full h-full object-cover opacity-80">
-                        </div>
-                        <div class="p-6 space-y-3">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-cyber-blue bg-cyber-blue/10 border border-cyber-blue/20 px-2.5 py-1 rounded">Patient Portal</span>
-                            <h3 class="text-base font-bold text-white pt-2">Patient Care Portal</h3>
-                            <p class="text-slate-400 text-xs leading-relaxed">A patient-focused digital portal for accessing profiles, appointments, care information, medical records, and communication with healthcare services through one convenient interface.</p>
-                        </div>
-						<div class="p-6 pt-0">
-                        <button class="w-full btn !min-w-0" onclick="window.open('https://hosptialsys.vercel.app/', '_blank');">Open Website</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PACKAGES -->
+<section class="section-pad" id="packages">
+<div class="container">
+<div class="section-heading">
+<div class="eyebrow">Simple & Transparent Pricing</div>
+<h2>Our Service <span class="gradient-text">Packages</span></h2>
+<p>USD starting prices. Final pricing depends on features, scope, integrations and project requirements.</p>
+</div>
+<div class="packages-grid" id="packagesGrid"></div>
+<p class="form-note" style="text-align:center;margin-top:25px">
+Domain registration, hosting, third-party subscriptions and ongoing maintenance are quoted separately unless explicitly included in your proposal.
+</p>
+</div>
+</section>
 
-    <!-- Packages & Offers -->
-    <section id="packages" class="py-16 lg:py-20 bg-cyber-card/20 border-t border-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 space-y-3">
-                <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-purple">Simple & Transparent Plans</h2>
-                <p class="text-2xl sm:text-3xl font-black tracking-tight text-white">Our Service Packages</p>
-                <div class="h-0.5 w-16 bg-gradient-to-r from-cyber-cyan to-cyber-purple mx-auto rounded"></div>
-            </div>
+<!-- ABOUT -->
+<section class="section-pad" id="about">
+<div class="container about-grid">
+<div>
+<div class="eyebrow">About AiSoftCare LLC</div>
+<h2>Building Software Around <span class="gradient-text">Your Business</span></h2>
+<p>AiSoftCare LLC follows a structured development process focused on understanding requirements, designing practical solutions, testing functionality and delivering maintainable digital products.</p>
+<p>We work with startups, small businesses and growing organizations looking to improve their online presence or everyday operations.</p>
+<a href="#contact" class="btn btn-primary">Discuss Your Project</a>
+</div>
+<div class="process-list">
+<div class="card process-item">
+<strong><i class="fa-solid fa-comments" style="color:var(--cyan)"></i> &nbsp; 01. Requirements Discussion</strong>
+<p>We learn about your business, your customers and the problem you want to solve.</p>
+</div>
+<div class="card process-item">
+<strong><i class="fa-solid fa-pen-ruler" style="color:var(--cyan)"></i> &nbsp; 02. Planning & Design</strong>
+<p>We agree on the scope, key features, deliverables and project milestones.</p>
+</div>
+<div class="card process-item">
+<strong><i class="fa-solid fa-code" style="color:var(--cyan)"></i> &nbsp; 03. Development & Testing</strong>
+<p>We build and review the solution against the agreed requirements.</p>
+</div>
+<div class="card process-item">
+<strong><i class="fa-solid fa-rocket" style="color:var(--cyan)"></i> &nbsp; 04. Delivery & Support</strong>
+<p>We hand over the completed work and discuss any ongoing support requirements.</p>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-cyber-card border-2 border-slate-900 rounded-2xl p-6 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="inline-block bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 01</div>
-                        <h3 class="text-xl font-black text-white">Starter Website</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Perfect for launching a clean online presence to display your brand details.</p>
-                        <div class="text-xl font-bold text-white pt-2">$1000</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-900">
-                        <a href="#contact" class="interactive block text-center bg-cyber-blue hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase transition">Select Plan</a>
-                    </div>
-                </div>
-                <div class="bg-cyber-card border-2 border-cyber-cyan/30 rounded-2xl p-6 flex flex-col justify-between shadow-neon-cyan">
-                    <div class="space-y-4">
-                        <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 02</div>
-                        <h3 class="text-xl font-black text-white">Business Growth</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">Built to automate tasks and provide a safe digital tool to handle records.</p>
-                        <div class="text-xl font-bold text-white pt-2">$2000</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-900">
-                        <a href="#contact" class="interactive block text-center bg-gradient-to-r from-cyber-blue to-cyber-purple text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase shadow-logo-glow">Select Plan</a>
-                    </div>
-                </div>
-                <div class="bg-cyber-card border-2 border-slate-900 rounded-2xl p-6 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="inline-block bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30 px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider">Plan 03</div>
-                        <h3 class="text-xl font-black text-white">Full Application Suite</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">A complete cloud network linking client accounts across all devices seamlessly.</p>
-                        <div class="text-xl font-bold text-white pt-2">$10,000</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-900">
-                        <a href="#contact" class="interactive block text-center bg-cyber-dark hover:bg-slate-800 border border-slate-800 text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider uppercase">Select Plan</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- CONTACT -->
+<section class="section-pad" id="contact">
+<div class="container">
+<div class="section-heading">
+<div class="eyebrow">Let's Work Together</div>
+<h2>Start Your <span class="gradient-text">Project</span></h2>
+<p>Tell us what you need. We'll help you identify a practical solution and discuss the next steps.</p>
+</div>
 
-    <!-- Corporate Integrity Section -->
-    <section id="about" class="py-16 lg:py-20 bg-cyber-card/20 border-t border-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
-            <div class="space-y-5 text-center md:text-left">
-                <h2 class="text-[11px] uppercase font-bold tracking-widest text-cyber-purple">Operational Security Layer</h2>
-                <p class="text-2xl sm:text-3xl font-black text-white tracking-tight">Structured For Technical Compliance</p>
-                <p class="text-slate-400 text-xs leading-relaxed">
-                    AiSoftCare LLC follows a structured development process focused on clear requirements, practical architecture, testing and reliable delivery. We build solutions around the actual needs of each client rather than forcing a one-size-fits-all approach.
-                </p>
-            </div>
-            <div class="space-y-4">
-                <div class="bg-cyber-card/70 border border-slate-900 rounded-xl p-5">
-                    <h4 class="font-bold text-white text-sm">Validated Framework Design</h4>
-                    <p class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">Systems structured under verified technical methodologies to enforce structural security and high availability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="contact-grid">
+<div class="card contact-panel">
+<h3>Contact AiSoftCare</h3>
+<p>Have a website, app or software idea? Share your requirements and let's discuss how AiSoftCare can help.</p>
 
-    <!-- Direct Contact Details Section -->
-    <section id="contact" class="py-16 lg:py-20 bg-cyber-card/40 border-t border-slate-950">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Get In Touch</h2>
-                <p class="text-slate-400 text-xs">Reach out directly via our secure communication networks. Our team responds within 24 operational hours.</p>
-            </div>
-            
-            <div class="grid sm:grid-cols-2 gap-6">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aisoftcarellc1@gmail.com" target="_blank" rel="noopener noreferrer" class="interactive bg-cyber-card border border-slate-900 rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-4 transition-all duration-300 hover:border-cyber-cyan hover:shadow-neon-cyan group">
-                    <div class="h-14 w-14 bg-cyber-dark text-cyber-cyan border border-cyber-cyan/20 rounded-full flex items-center justify-center text-xl shadow-neon-cyan group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white">Secure Email Inbox</h3>
-                        <p class="text-slate-400 text-xs font-mono mt-1 break-all">aisoftcarellc1@gmail.com</p>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold tracking-widest text-cyber-cyan uppercase pt-2">Send Mail &rarr;</span>
-                </a>
+<a class="contact-method" href="mailto:aisoftcarellc1@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+<span>aisoftcarellc1@gmail.com</span>
+</a>
 
-                <div class="bg-cyber-card border border-slate-900 rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-4 transition-all duration-300 hover:border-cyber-purple hover:shadow-neon-purple">
-                    <div class="h-14 w-14 bg-cyber-dark text-cyber-purple border border-cyber-purple/20 rounded-full flex items-center justify-center text-xl shadow-neon-purple">
-                        <i class="fa-solid fa-network-wired"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white">Digital Ecosystems</h3>
-                        <p class="text-slate-400 text-xs mt-1">Connect instantly across our verified business architectures.</p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-2 text-md">
-                        <a href="https://www.facebook.com/share/1EBgKuaTMq/" target="_blank" rel="noopener noreferrer" class="interactive p-2.5 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-cyan border border-slate-900 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/aisoftcarellc?igsh=MXF2dmEycG52dDMzbQ==" target="_blank" rel="noopener noreferrer" class="interactive p-2.5 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-purple border border-slate-900 transition-all"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/aisoftcare/" target="_blank" rel="noopener noreferrer" class="interactive p-2.5 rounded-lg bg-cyber-dark text-slate-400 hover:text-cyber-blue border border-slate-900 transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<a class="contact-method" href="https://wa.me/923300389247" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-whatsapp"></i>
+<span>+92 3300 389247</span>
+</a>
 
-    <!-- Modern Enhanced Footer -->
-    <footer class="bg-cyber-card border-t border-slate-900 text-slate-400 pt-16 pb-12 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-slate-900 text-center sm:text-left">
-                <div class="space-y-4 md:col-span-1 flex flex-col items-center sm:items-start">
-                    <div class="flex items-center space-x-3">
-                        <img src="aisoftcare-logo.jpeg" alt="Logo" class="h-8 w-8 rounded-full object-cover border border-cyber-cyan/30 shadow-neon-cyan">
-                        <span class="text-lg font-black tracking-widest text-white">AiSoftCare</span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">Smart Solutions, Care That Connects The Future. Delivering high-performance software systems.</p>
-                </div>
-                <div>
-                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Navigation</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="#hero" class="hover:text-cyber-cyan transition">Home Page</a></li>
-                        <li><a href="#services" class="hover:text-cyber-cyan transition">Our Core Services</a></li>
-                        <li><a href="#projects" class="hover:text-cyber-cyan transition">Sample Projects</a></li>
-                        <li><a href="#packages" class="hover:text-cyber-cyan transition">Pricing & Offers</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Capabilities</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="#services" class="hover:text-cyber-purple transition">Website Development</a></li>
-                        <li><a href="#services" class="hover:text-cyber-purple transition">Custom Software</a></li>
-                        <li><a href="#services" class="hover:text-cyber-purple transition">Mobile Apps & UI/UX</a></li>
-                        <li><a href="#services" class="hover:text-cyber-purple transition">Database & QA</a></li>
-                    </ul>
-                </div>
-                <div class="space-y-3 flex flex-col items-center sm:items-start">
-                    <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Direct Contact</h4>
-                    <p class="text-xs text-slate-400 flex items-center space-x-2">
-                        <i class="fa-solid fa-envelope text-cyber-cyan"></i>
-                        <span class="font-mono break-all">aisoftcarellc1@gmail.com</span>
-                    </p>
-                    <p class="text-xs text-slate-400 flex items-center space-x-2">
-                        <i class="fa-solid fa-shield-halved text-cyber-purple"></i>
-                        <span>US Registered LLC Enterprise</span>
-                    </p>
-                </div>
-            </div>
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                <p class="text-[11px] font-mono tracking-wide text-slate-500 text-center sm:text-left">&copy; 2026 AiSoftCare LLC. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<a class="contact-method" href="https://www.aisoftcare.us" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-globe"></i>
+<span>www.aisoftcare.us</span>
+</a>
 
-    <!-- Bottom Right Floating Integration: WhatsApp (+92 330 0389247) & Smart Persuasive AI Chatbot -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-3">
-        
-        <!-- WhatsApp Floating Button -->
-        <a href="https://wa.me/923300389247?text=Hello%20AiSoftCare,%20I%20want%20to%20discuss%20my%20project%20requirements%20with%20your%20expert%20team." target="_blank" rel="noopener noreferrer" class="interactive bg-emerald-500 hover:bg-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110 group relative" title="Chat on WhatsApp">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
-            <span class="absolute right-14 bg-cyber-card text-white text-[10px] font-mono px-2.5 py-1 rounded-md border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">Chat on WhatsApp</span>
-        </a>
+<div class="socials">
+<a href="https://www.facebook.com/share/1EBgKuaTMq/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/aisoftcarellc" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.linkedin.com/company/aisoftcare/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+</div>
 
-        <!-- Chatbot Toggle Button -->
-        <button id="chatbot-toggle-btn" class="interactive bg-gradient-to-r from-cyber-blue to-cyber-purple text-white w-14 h-14 rounded-full flex items-center justify-center shadow-logo-glow transition-all duration-300 hover:scale-110 relative group">
-            <i id="chatbot-icon" class="fa-solid fa-comment-dots text-xl"></i>
-            <span class="absolute right-16 bg-cyber-card text-white text-[10px] font-mono px-2.5 py-1 rounded-md border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">Ask AI Assistant</span>
-        </button>
+<div class="card form-panel">
+<h3>Request a Free Quote</h3>
+<p class="form-note">Complete the details below and choose WhatsApp or Gmail to prepare your inquiry.</p>
 
-        <!-- Chatbot Window Box -->
-        <div id="chatbot-window" class="hidden w-80 sm:w-96 bg-cyber-card border border-cyber-cyan/30 rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 origin-bottom-right">
-            <!-- Chat Header -->
-            <div class="bg-cyber-dark px-4 py-3.5 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center space-x-2.5">
-                    <div class="relative flex items-center justify-center">
-                        <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full absolute -top-0.5 -right-0.5 animate-ping"></div>
-                        <div class="w-8 h-8 rounded-full bg-cyber-card border border-cyber-cyan/40 flex items-center justify-center text-cyber-cyan font-bold text-xs">AI</div>
-                    </div>
-                    <div>
-                        <h4 class="text-white text-xs font-bold tracking-wide">AiSoftCare AI Project Assistant</h4>
-                        <p class="text-[10px] text-emerald-400 font-mono">Online • Project Guidance Assistant</p>
-                    </div>
-                </div>
-                <button id="chatbot-close-btn" class="text-slate-400 hover:text-white p-1 transition">
-                    <i class="fa-solid fa-xmark text-sm"></i>
-                </button>
-            </div>
+<form id="quoteForm">
+<div class="form-grid">
 
-            <!-- Chat Messages Body -->
-            <div id="chatbot-messages" class="p-4 h-72 overflow-y-auto space-y-3 text-xs bg-cyber-dark/50 flex flex-col">
-                <div class="flex items-start space-x-2">
-                    <div class="w-6 h-6 rounded-full bg-cyber-blue/20 border border-cyber-blue/40 flex items-center justify-center text-cyber-cyan shrink-0 text-[10px]">AI</div>
-                    <div class="bg-cyber-card border border-slate-800 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[80%] leading-relaxed">
-                        Welcome to <strong>AiSoftCare LLC</strong>! I can help you identify the right service, clarify your project requirements, and suggest a practical next step. Tell me what you want to build or what problem you want to solve.
-                    </div>
-                </div>
-            </div>
+<div class="field">
+<label for="clientName">Full Name *</label>
+<input id="clientName" required placeholder="Your full name">
+</div>
 
-            <!-- Quick Suggestion Pills -->
-            <div class="px-3 py-2 bg-cyber-card/80 border-t border-slate-800 flex gap-1.5 overflow-x-auto text-[10px] whitespace-nowrap">
-                <button onclick="sendQuickQuery('I want to build a website')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Build a Website</button>
-                <button onclick="sendQuickQuery('I need custom software')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Custom Software</button>
-                <button onclick="sendQuickQuery('I need a mobile app')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Mobile App</button>
-                <button onclick="sendQuickQuery('What are your pricing plans?')" class="bg-cyber-dark hover:bg-slate-800 text-slate-300 border border-slate-800 px-2.5 py-1 rounded-full transition">Pricing</button>
-            </div>
+<div class="field">
+<label for="clientEmail">Email Address *</label>
+<input id="clientEmail" type="email" required placeholder="you@example.com">
+</div>
 
-            <!-- Chat Input Footer -->
-            <p class="px-3 py-1 text-[9px] text-slate-400 bg-cyber-dark/80 text-center border-t border-slate-900">AI guidance is informational. Final scope, timeline and pricing are confirmed by our team.</p>
-            <div class="p-3 bg-cyber-dark border-t border-slate-800 flex items-center space-x-2">
-                <input type="text" id="chatbot-input" placeholder="Describe your project here..." class="flex-1 bg-cyber-card border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyber-cyan transition">
-                <button id="chatbot-send-btn" class="bg-gradient-to-r from-cyber-blue to-cyber-purple text-white w-8 h-8 rounded-xl flex items-center justify-center hover:brightness-110 transition shadow-logo-glow shrink-0">
-                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+<div class="field">
+<label for="clientPhone">WhatsApp Number</label>
+<input id="clientPhone" type="tel" placeholder="+92 ...">
+</div>
 
-    <!-- Scripts -->
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+<div class="field">
+<label for="clientBusiness">Business Name</label>
+<input id="clientBusiness" placeholder="Company or business">
+</div>
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<div class="field">
+<label for="clientService">Required Service *</label>
+<select id="clientService" required>
+<option value="">Select a service</option>
+</select>
+</div>
 
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
+<div class="field">
+<label for="clientBudget">Estimated Budget (USD)</label>
+<select id="clientBudget">
+<option value="">Select your budget</option>
+<option>Under $250</option>
+<option>$250 - $500</option>
+<option>$500 - $1,000</option>
+<option>$1,000 - $2,500</option>
+<option>$2,500 - $5,000</option>
+<option>$5,000+</option>
+<option>Need guidance</option>
+</select>
+</div>
 
-    <script>
-        const cursor = document.getElementById('custom-cursor');
-        const dot = document.getElementById('custom-cursor-dot');
-        let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-        const speed = 0.14; 
+<div class="field">
+<label for="clientTimeline">Preferred Timeline</label>
+<select id="clientTimeline">
+<option value="">Select timeline</option>
+<option>As soon as possible</option>
+<option>Within 2 weeks</option>
+<option>Within 1 month</option>
+<option>1 - 3 months</option>
+<option>Flexible</option>
+</select>
+</div>
 
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            dot.style.left = mouseX + 'px';
-            dot.style.top = mouseY + 'px';
-        });
+<div class="field">
+<label for="clientPackage">Interested Package</label>
+<select id="clientPackage">
+<option value="">Not selected</option>
+<option>Business Launch - $250</option>
+<option>Business Pro - $550</option>
+<option>Business Premium - $1,000</option>
+<option>Enterprise Solutions - Custom Quote</option>
+</select>
+</div>
 
-        function animateCursor() {
-            let distX = mouseX - cursorX;
-            let distY = mouseY - cursorY;
-            cursorX += distX * speed;
-            cursorY += distY * speed;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
+<div class="field full">
+<label for="clientDetails">Project Requirements *</label>
+<textarea id="clientDetails" required placeholder="Describe your business, what you need, and the main features you want..."></textarea>
+</div>
 
-        document.querySelectorAll('.interactive').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '46px';
-                cursor.style.height = '46px';
-                cursor.style.borderColor = '#8a2be2'; 
-                cursor.style.backgroundColor = 'rgba(138, 43, 226, 0.1)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '22px';
-                cursor.style.height = '22px';
-                cursor.style.borderColor = '#00f0ff'; 
-                cursor.style.backgroundColor = 'transparent';
-            });
-        });
-    </script>
+</div>
 
-    <!-- Persuasive AI Chatbot Logic Script (English Only) -->
-    <script>
-        const toggleBtn = document.getElementById('chatbot-toggle-btn');
-        const closeBtn = document.getElementById('chatbot-close-btn');
-        const chatWindow = document.getElementById('chatbot-window');
-        const chatMessages = document.getElementById('chatbot-messages');
-        const chatInput = document.getElementById('chatbot-input');
-        const sendBtn = document.getElementById('chatbot-send-btn');
+<div class="form-actions">
+<button type="button" id="sendWhatsApp" class="btn btn-primary">
+<i class="fa-brands fa-whatsapp"></i> Continue on WhatsApp
+</button>
+<button type="button" id="sendGmail" class="btn btn-outline">
+<i class="fa-solid fa-envelope"></i> Compose in Gmail
+</button>
+<button type="button" id="copyInquiry" class="btn btn-outline">
+<i class="fa-solid fa-copy"></i> Copy Inquiry
+</button>
+</div>
+<p id="formStatus" class="form-note" role="status" aria-live="polite"></p>
+<p class="form-note">This form prepares a message in WhatsApp or Gmail. You must press Send there to deliver it. No inquiry is automatically stored on this website.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
 
-        toggleBtn.addEventListener('click', () => {
-            chatWindow.classList.toggle('hidden');
-            if(!chatWindow.classList.contains('hidden')) {
-                chatInput.focus();
-            }
-        });
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<a href="#home" class="brand">
+<img src="aisoftcare-logo.jpeg" alt="AiSoftCare logo">
+<strong>AiSoftCare</strong>
+</a>
+<p>Smart Solutions, Care That Connects The Future.</p>
+<p>Professional digital solutions for businesses.</p>
+</div>
+<div>
+<h4>Navigation</h4>
+<div class="footer-links">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#projects">Sample Projects</a>
+<a href="#packages">Our Offers</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+<div>
+<h4>Services</h4>
+<div class="footer-links">
+<a href="#services">Web Development</a>
+<a href="#services">Mobile Apps</a>
+<a href="#services">Custom Software</a>
+<a href="#services">UI/UX Design</a>
+<a href="#services">Software Testing</a>
+</div>
+</div>
+<div>
+<h4>Contact</h4>
+<p>aisoftcarellc1@gmail.com</p>
+<p>+92 3300 389247</p>
+<a href="https://www.aisoftcare.us">www.aisoftcare.us</a>
+</div>
+</div>
+<div class="copyright">
+© <span id="year"></span> AiSoftCare LLC. All rights reserved.
+</div>
+</div>
+</footer>
 
-        closeBtn.addEventListener('click', () => {
-            chatWindow.classList.add('hidden');
-        });
+<!-- FLOATING WHATSAPP AND ASSISTANT -->
+<div class="float-actions">
 
-        function appendMessage(sender, text) {
-            const isUser = sender === 'user';
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `flex items-start space-x-2 ${isUser ? 'justify-end' : ''}`;
-            
-            if(isUser) {
-                messageDiv.innerHTML = `
-                    <div class="bg-gradient-to-r from-cyber-blue to-cyber-purple text-white p-3 rounded-xl rounded-tr-none max-w-[80%] leading-relaxed">
-                        ${text}
-                    </div>
-                    <div class="w-6 h-6 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 shrink-0 text-[10px]">You</div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="w-6 h-6 rounded-full bg-cyber-blue/20 border border-cyber-blue/40 flex items-center justify-center text-cyber-cyan shrink-0 text-[10px]">AI</div>
-                    <div class="bg-cyber-card border border-slate-800 p-3 rounded-xl rounded-tl-none text-slate-300 max-w-[80%] leading-relaxed">
-                        ${text}
-                    </div>
-                `;
-            }
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="AiSoftCare Project Advisor" aria-modal="false">
+<div class="chat-header">
+<div>
+<strong>AiSoftCare Project Advisor</strong>
+<small>Online · Guided project consultation</small>
+</div>
+<button id="closeChat" aria-label="Close assistant">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
 
-        function handleBotResponse(query) {
-            const q = query.toLowerCase();
-            let response = "I can help you narrow this down. Tell me: (1) what your business does, (2) who will use the solution, and (3) the main problem you want it to solve. I’ll suggest the most suitable AiSoftCare service and next step.";
+<div class="chat-messages" id="chatMessages" aria-live="polite"></div>
 
-            if(q.includes('website') || q.includes('landing') || q.includes('site')) {
-                response = "A website is a good fit if your goal is to build trust, explain services, generate inquiries, or showcase your business online. We can help with a landing page, business website, portfolio, or a more functional web portal. Do you mainly need <strong>company information</strong>, <strong>lead generation</strong>, <strong>online booking</strong>, or <strong>customer accounts</strong>?";
-            } else if(q.includes('mobile') || q.includes('android') || q.includes('ios')) {
-                response = "A mobile app makes sense when customers or staff need frequent access from their phones. Tell me whether the app is for <strong>customers</strong>, <strong>employees</strong>, or <strong>both</strong>, and the 2–3 most important actions users should be able to perform.";
-            } else if(q.includes('software') || q.includes('system') || q.includes('inventory') || q.includes('pos') || q.includes('billing')) {
-                response = "Custom business software is suitable when you want to replace manual work, spreadsheets, paper records, or disconnected tools. We can plan modules such as billing, inventory, customer records, staff roles, reports, or dashboards. What process are you currently managing manually?";
-            } else if(q.includes('design') || q.includes('ui') || q.includes('ux')) {
-                response = "For UI/UX, we can help organize screens, user flows and interface layouts before development. If you already have an app or website, tell me what feels confusing or outdated. If it is new, tell me the main user journey you want designed.";
-            } else if(q.includes('image') || q.includes('photo') || q.includes('background')) {
-                response = "Our image editing service can help with cleanup, resizing, background work and web-ready visual optimization. Tell me roughly how many images you have and what changes you need.";
-            } else if(q.includes('database') || q.includes('data')) {
-                response = "If your project needs structured records, search, reporting or multi-user access, a database solution may be part of the build. Tell me what type of records you need to store and who should be allowed to view or edit them.";
-            } else if(q.includes('test') || q.includes('qa') || q.includes('bug')) {
-                response = "Software Testing & QA is useful if you already have a website, app or system and want functional checks, usability review and organized bug reporting. Tell me what product you have and whether it is live or still in development.";
-            } else if(q.includes('price') || q.includes('cost') || q.includes('plan') || q.includes('budget') || q.includes('package')) {
-                response = "Project pricing depends on scope, screens/modules, integrations and timeline. Share what you want to build and your approximate budget range, and I’ll help you prepare a clearer requirement before you contact the team. Final pricing is confirmed after project review.";
-            } else if(q.includes('restaurant') || q.includes('clinic') || q.includes('hospital') || q.includes('store') || q.includes('mart') || q.includes('business')) {
-                response = "For a business, the right solution depends on your goal. For visibility and inquiries, start with a <strong>website</strong>. For internal operations, consider <strong>custom software</strong>. For customers who need frequent mobile access, consider a <strong>mobile app</strong>. Tell me your business type and biggest current problem.";
-            } else if(q.includes('contact') || q.includes('whatsapp') || q.includes('number') || q.includes('talk') || q.includes('meeting')) {
-                response = "You can discuss your requirements directly with AiSoftCare on WhatsApp: <a href='https://wa.me/923300389247?text=Hello%20AiSoftCare,%20I%20want%20to%20discuss%20my%20project.' target='_blank' class='text-emerald-400 underline font-bold'>+92 330 0389247</a>. It helps to include your business type, required features, preferred timeline and budget range.";
-            }
+<div class="quick-replies">
+<button type="button" data-quick="I need a website">Website</button>
+<button type="button" data-quick="I need business software">Software</button>
+<button type="button" data-quick="I need a mobile app">Mobile App</button>
+<button type="button" data-quick="Show me pricing">Pricing</button>
+<button type="button" data-quick="I want a free quote">Get Quote</button>
+</div>
 
-            setTimeout(() => appendMessage('bot', response), 450);
-        }
+<div class="chat-disclaimer">
+Guided assistant, not a live AI model. Final pricing is confirmed by the team.
+</div>
 
-        function submitUserMessage() {
-            const text = chatInput.value.trim();
-            if(!text) return;
-            appendMessage('user', text);
-            chatInput.value = '';
-            handleBotResponse(text);
-        }
+<div class="chat-input-row">
+<input id="chatInput" placeholder="Tell us about your project..." aria-label="Message">
+<button id="chatSend" aria-label="Send message">
+<i class="fa-solid fa-paper-plane"></i>
+</button>
+</div>
+</div>
 
-        sendBtn.addEventListener('click', submitUserMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') {
-                submitUserMessage();
-            }
-        });
+<button id="chatToggle" class="float-btn chat-toggle" aria-label="Open project advisor">
+<i class="fa-solid fa-comment-dots"></i>
+</button>
 
-        window.sendQuickQuery = function(queryText) {
-            appendMessage('user', queryText);
-            handleBotResponse(queryText);
-        }
-    </script>
+<a class="float-btn whatsapp" href="https://wa.me/923300389247?text=Hello%20AiSoftCare%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+</div>
+
+<script>
+"use strict";
+
+/* =================================================
+   COMPANY SERVICES
+================================================= */
+
+const services=[
+{
+name:"Website Development",
+icon:"fa-globe",
+desc:"Responsive business websites, portfolios and multi-page websites designed to present your brand professionally."
+},
+{
+name:"Mobile App Development",
+icon:"fa-mobile-screen-button",
+desc:"Practical mobile applications for customers, staff and everyday business workflows."
+},
+{
+name:"Custom Business Software",
+icon:"fa-laptop-code",
+desc:"Tailored systems for inventory, billing, records, dashboards and operational management."
+},
+{
+name:"UI/UX Design",
+icon:"fa-pen-ruler",
+desc:"Clean interfaces, wireframes and user experiences focused on usability and consistency."
+},
+{
+name:"Database Solutions",
+icon:"fa-database",
+desc:"Structured databases and reliable data workflows for applications and business records."
+},
+{
+name:"Image Editing",
+icon:"fa-image",
+desc:"Professional image cleanup, background editing, resizing and optimization for digital content."
+},
+{
+name:"Software Testing & QA",
+icon:"fa-vial-circle-check",
+desc:"Functional testing, usability checks, bug identification and organized testing reports."
+},
+{
+name:"Maintenance & Support",
+icon:"fa-screwdriver-wrench",
+desc:"Website updates, bug fixes, content adjustments and ongoing technical support."
+},
+{
+name:"Website Redesign",
+icon:"fa-wand-magic-sparkles",
+desc:"Refresh outdated business websites with modern layouts, clearer navigation and responsive designs."
+},
+{
+name:"Landing Page Design",
+icon:"fa-window-maximize",
+desc:"Focused landing pages for promotions, service inquiries, product launches and marketing campaigns."
+},
+{
+name:"Website Speed & Mobile Optimization",
+icon:"fa-gauge-high",
+desc:"Improve mobile usability, page loading performance and common website performance issues."
+},
+{
+name:"Website Content Updates",
+icon:"fa-file-pen",
+desc:"Update existing website text, images, sections, service information and basic content."
+}
+];
+
+const servicesGrid=document.getElementById("servicesGrid");
+const serviceSelect=document.getElementById("clientService");
+
+services.forEach(service=>{
+const card=document.createElement("article");
+card.className="card service-card reveal";
+card.innerHTML=`
+<div class="service-icon"><i class="fa-solid ${service.icon}"></i></div>
+<h3>${service.name}</h3>
+<p>${service.desc}</p>
+<button type="button" class="mini-link">Get a Quote <i class="fa-solid fa-arrow-right"></i></button>
+`;
+card.querySelector("button").addEventListener("click",()=>{
+chooseService(service.name);
+});
+servicesGrid.appendChild(card);
+
+const option=document.createElement("option");
+option.value=service.name;
+option.textContent=service.name;
+serviceSelect.appendChild(option);
+});
+
+/* =================================================
+   SAMPLE PROJECTS
+================================================= */
+
+const projects=[
+{
+name:"Online Daig Ordering System",
+type:"Web Application",
+desc:"Digital catering solution allowing customers to explore and customize bulk traditional food orders.",
+image:"https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop&q=75",
+url:"https://ahmad-ali-soomro.github.io/DaigHub.pk/"
+},
+{
+name:"Mart Inventory System",
+type:"Business Software",
+desc:"Retail inventory management concept for product records, stock handling and daily business operations.",
+image:"https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=700&auto=format&fit=crop&q=75",
+url:"https://ahmad-ali-soomro.github.io/Kalash-General-Store/"
+},
+{
+name:"Premium Perfume Brand",
+type:"Brand Website",
+desc:"Premium fragrance website concept focused on product presentation and digital brand experience.",
+image:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=700&auto=format&fit=crop&q=75",
+url:"https://ahmad-ali-soomro.github.io/www.avela_fragrances.com/"
+},
+{
+name:"Hospital Management System",
+type:"Management System",
+desc:"Hospital management system concept for patient records, appointments, departments and administrative workflows.",
+image:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&auto=format&fit=crop&q=75",
+url:"https://ahmad-ali-soomro.github.io/hospital-system/"
+},
+{
+name:"Gym Management System",
+type:"Management System",
+desc:"Gym management solution concept covering memberships, attendance, payments and trainer-related operations.",
+image:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&auto=format&fit=crop&q=75",
+url:null
+},
+{
+name:"Patient Care Portal",
+type:"Healthcare Portal",
+desc:"Patient-focused portal concept for profiles, appointments, records and access to healthcare information.",
+image:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&auto=format&fit=crop&q=75",
+url:"https://hosptialsys.vercel.app/"
+}
+];
+
+const projectsGrid=document.getElementById("projectsGrid");
+
+projects.forEach(project=>{
+const card=document.createElement("article");
+card.className="card project-card reveal";
+
+const image=document.createElement("img");
+image.src=project.image;
+image.alt=project.name;
+image.loading="lazy";
+card.appendChild(image);
+
+const body=document.createElement("div");
+body.className="project-body";
+
+const type=document.createElement("span");
+type.className="project-type";
+type.textContent=project.type;
+
+const heading=document.createElement("h3");
+heading.textContent=project.name;
+
+const description=document.createElement("p");
+description.textContent=project.desc;
+
+body.append(type,heading,description);
+
+if(project.url){
+const link=document.createElement("a");
+link.href=project.url;
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.className="btn btn-primary";
+link.innerHTML='Open Website <i class="fa-solid fa-arrow-up-right-from-square"></i>';
+body.appendChild(link);
+}else{
+const button=document.createElement("button");
+button.className="btn btn-outline";
+button.textContent="Request Similar Project";
+button.addEventListener("click",()=>{
+chooseService("Custom Business Software");
+document.getElementById("clientDetails").value=
+"I am interested in a project similar to the Gym Management System.";
+});
+body.appendChild(button);
+}
+card.appendChild(body);
+projectsGrid.appendChild(card);
+});
+
+/* =================================================
+   USD PACKAGES
+================================================= */
+
+const packages=[
+{
+name:"Business Launch",
+price:"$250",
+subtitle:"Starting From",
+tag:"PLAN 01",
+popular:false,
+desc:"For businesses that need a professional online presence.",
+features:[
+"Up to 3 website pages",
+"Mobile-responsive design",
+"WhatsApp contact button",
+"Basic contact form",
+"Basic SEO setup",
+"Initial launch support"
+]
+},
+{
+name:"Business Pro",
+price:"$550",
+subtitle:"Starting From",
+tag:"PLAN 02",
+popular:true,
+desc:"For growing businesses that want a stronger website.",
+features:[
+"Up to 7 website pages",
+"Custom website styling",
+"Inquiry/contact forms",
+"Image gallery or portfolio",
+"Basic analytics setup",
+"Basic SEO setup",
+"Initial launch support"
+]
+},
+{
+name:"Business Premium",
+price:"$1,000",
+subtitle:"Starting From",
+tag:"PLAN 03",
+popular:false,
+desc:"For businesses needing more advanced website functionality.",
+features:[
+"Up to 12 website pages",
+"Advanced UI/UX styling",
+"Content management setup",
+"Lead inquiry forms",
+"Selected third-party integrations",
+"Testing and launch support"
+]
+},
+{
+name:"Enterprise Solutions",
+price:"Custom Quote",
+subtitle:"Scope-Based Pricing",
+tag:"PLAN 04",
+popular:false,
+desc:"For specialized business software and larger applications.",
+features:[
+"Custom business applications",
+"Inventory and POS systems",
+"Business dashboards",
+"Healthcare software modules",
+"Customer and staff portals",
+"Mobile application projects",
+"Requirements-based quotation"
+]
+}
+];
+
+const packagesGrid=document.getElementById("packagesGrid");
+
+packages.forEach(pkg=>{
+const card=document.createElement("article");
+card.className="card package reveal"+(pkg.popular?" popular":"");
+
+if(pkg.popular){
+const badge=document.createElement("span");
+badge.className="popular-label";
+badge.textContent="MOST POPULAR";
+card.appendChild(badge);
+}
+
+const tag=document.createElement("small");
+tag.textContent=pkg.tag;
+
+const heading=document.createElement("h3");
+heading.textContent=pkg.name;
+
+const price=document.createElement("div");
+price.className="price"+(pkg.price==="Custom Quote"?" custom":"");
+price.textContent=pkg.price;
+
+const subtitle=document.createElement("span");
+subtitle.className="starting";
+subtitle.textContent=pkg.subtitle;
+
+const description=document.createElement("p");
+description.textContent=pkg.desc;
+
+const list=document.createElement("ul");
+pkg.features.forEach(feature=>{
+const item=document.createElement("li");
+item.innerHTML='<i class="fa-solid fa-check"></i>';
+item.appendChild(document.createTextNode(feature));
+list.appendChild(item);
+});
+
+const button=document.createElement("button");
+button.type="button";
+button.className="btn "+(pkg.popular?"btn-primary":"btn-outline");
+button.textContent="Select Plan";
+button.addEventListener("click",()=>choosePackage(pkg));
+
+card.append(tag,heading,price,subtitle,description,list,button);
+packagesGrid.appendChild(card);
+});
+
+function chooseService(service){
+document.getElementById("clientService").value=service;
+document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
+
+function choosePackage(pkg){
+document.getElementById("clientPackage").value=
+pkg.name+" - "+pkg.price;
+document.getElementById("clientService").value=
+pkg.name==="Enterprise Solutions"?
+"Custom Business Software":"Website Development";
+document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
+
+/* =================================================
+   CONTACT FORM / GMAIL / WHATSAPP
+================================================= */
+
+const $=id=>document.getElementById(id);
+const contactEmail="aisoftcarellc1@gmail.com";
+const contactWhatsApp="923300389247";
+
+function getFormData(){
+const form=$("quoteForm");
+if(!form.reportValidity())return null;
+
+return{
+name:$("clientName").value.trim(),
+email:$("clientEmail").value.trim(),
+phone:$("clientPhone").value.trim(),
+business:$("clientBusiness").value.trim(),
+service:$("clientService").value,
+budget:$("clientBudget").value,
+timeline:$("clientTimeline").value,
+package:$("clientPackage").value,
+details:$("clientDetails").value.trim()
+};
+}
+
+function buildInquiry(data){
+return [
+"Hello AiSoftCare LLC,",
+"",
+"I would like to request a quotation for my project.",
+"",
+"Full Name: "+data.name,
+"Email: "+data.email,
+"WhatsApp: "+(data.phone||"Not provided"),
+"Business: "+(data.business||"Not provided"),
+"Required Service: "+data.service,
+"Package: "+(data.package||"Not selected"),
+"Budget: "+(data.budget||"Not specified"),
+"Timeline: "+(data.timeline||"Flexible"),
+"",
+"Project Requirements:",
+data.details,
+"",
+"Please review my requirements and contact me.",
+"",
+"Thank you."
+].join("\n");
+}
+
+function showFormStatus(message){
+$("formStatus").textContent=message;
+}
+
+$("sendWhatsApp").addEventListener("click",()=>{
+const data=getFormData();
+if(!data)return;
+const url="https://wa.me/"+contactWhatsApp+
+"?text="+encodeURIComponent(buildInquiry(data));
+window.open(url,"_blank","noopener,noreferrer");
+showFormStatus("WhatsApp opened. Please press Send to submit your inquiry.");
+});
+
+$("sendGmail").addEventListener("click",()=>{
+const data=getFormData();
+if(!data)return;
+
+const subject="New Project Inquiry - "+data.service;
+const body=buildInquiry(data);
+
+const gmailUrl=
+"https://mail.google.com/mail/?view=cm&fs=1"+
+"&to="+encodeURIComponent(contactEmail)+
+"&su="+encodeURIComponent(subject)+
+"&body="+encodeURIComponent(body);
+
+const popup=window.open(gmailUrl,"_blank");
+
+if(!popup){
+const mailto="mailto:"+contactEmail+
+"?subject="+encodeURIComponent(subject)+
+"&body="+encodeURIComponent(body);
+window.location.href=mailto;
+showFormStatus("Popup was blocked. Trying your default email application.");
+}else{
+showFormStatus("Gmail opened. Sign in if needed, review the message and press Send.");
+}
+});
+
+$("copyInquiry").addEventListener("click",async()=>{
+const data=getFormData();
+if(!data)return;
+
+const message=buildInquiry(data);
+
+try{
+await navigator.clipboard.writeText(message);
+showFormStatus("Inquiry copied. You can paste it into any email or chat.");
+}catch{
+const temp=document.createElement("textarea");
+temp.value=message;
+document.body.appendChild(temp);
+temp.select();
+const copied=document.execCommand("copy");
+temp.remove();
+showFormStatus(copied?"Inquiry copied.":"Please copy your inquiry manually.");
+}
+});
+
+/* =================================================
+   MOBILE MENU
+================================================= */
+
+$("menuToggle").addEventListener("click",()=>{
+const menu=$("navLinks");
+const open=menu.classList.toggle("open");
+$("menuToggle").setAttribute("aria-expanded",String(open));
+});
+
+document.querySelectorAll("#navLinks a").forEach(link=>{
+link.addEventListener("click",()=>{
+$("navLinks").classList.remove("open");
+$("menuToggle").setAttribute("aria-expanded","false");
+});
+});
+
+$("year").textContent=new Date().getFullYear();
+
+/* =================================================
+   GUIDED PROJECT ADVISOR
+   Client discovery and sales conversation
+================================================= */
+
+const chatState={
+step:"service",
+service:"",
+business:"",
+features:"",
+budget:"",
+timeline:""
+};
+
+const chatMessages=$("chatMessages");
+
+function addChatMessage(role,text){
+const div=document.createElement("div");
+div.className="message "+role;
+div.textContent=text;
+chatMessages.appendChild(div);
+chatMessages.scrollTop=chatMessages.scrollHeight;
+}
+
+function botSay(text){
+addChatMessage("bot",text);
+}
+
+function resetChat(){
+chatState.step="service";
+chatState.service="";
+chatState.business="";
+chatState.features="";
+chatState.budget="";
+chatState.timeline="";
+chatMessages.innerHTML="";
+
+botSay(
+"Welcome to AiSoftCare LLC!\n\n"+
+"I can help you choose the right digital solution for your business.\n\n"+
+"Are you looking for a website, mobile app, custom business software, or help improving an existing website?"
+);
+}
+
+resetChat();
+
+$("chatToggle").addEventListener("click",()=>{
+const windowEl=$("chatWindow");
+windowEl.classList.toggle("open");
+if(windowEl.classList.contains("open"))$("chatInput").focus();
+});
+
+$("closeChat").addEventListener("click",()=>{
+$("chatWindow").classList.remove("open");
+});
+
+function detectService(text){
+const q=text.toLowerCase();
+
+if(/redesign|old website|outdated/.test(q))return"Website Redesign";
+if(/landing page|single page/.test(q))return"Landing Page Design";
+if(/slow|speed|mobile optimization/.test(q))return"Website Speed & Mobile Optimization";
+if(/content update|change text|update image/.test(q))return"Website Content Updates";
+if(/maintenance|support|bug fix/.test(q))return"Maintenance & Support";
+if(/test|qa|quality assurance/.test(q))return"Software Testing & QA";
+if(/database|sql|data storage/.test(q))return"Database Solutions";
+if(/photo|image edit|background removal/.test(q))return"Image Editing";
+if(/ui\/ux|interface|wireframe/.test(q))return"UI/UX Design";
+if(/mobile app|android|ios|application for phone/.test(q))return"Mobile App Development";
+if(/inventory|pos|billing|erp|management system|software|dashboard/.test(q))return"Custom Business Software";
+if(/website|web page|web design|online presence/.test(q))return"Website Development";
+
+return"";
+}
+
+function priceGuidance(service){
+switch(service){
+case"Website Development":
+return"Website packages start at $250, with Business Pro at $550 and Business Premium at $1,000.";
+case"Landing Page Design":
+return"Landing pages are quoted according to content, layout and required functionality.";
+case"Website Redesign":
+return"Redesign pricing depends on the condition and complexity of your existing website.";
+case"Custom Business Software":
+return"Custom software is priced after reviewing the modules, users and workflows.";
+case"Mobile App Development":
+return"Mobile app pricing depends on platforms, screens, features and backend requirements.";
+default:
+return"We can prepare a tailored quotation after understanding the scope.";
+}
+}
+
+function advisorReply(text){
+const q=text.trim();
+const lower=q.toLowerCase();
+
+if(/^(hi|hello|hey|salam|assalamualaikum)$/.test(lower)){
+botSay("Hello! What type of business do you run, and what would you like to improve with technology?");
+return;
+}
+
+if(/contact|phone number|whatsapp number|email address|talk to (a )?person/.test(lower)){
+botSay(
+"You can contact our team directly:\n"+
+"WhatsApp: +92 3300 389247\n"+
+"Email: aisoftcarellc1@gmail.com\n\n"+
+"If you describe your project first, I can help prepare a clearer inquiry."
+);
+return;
+}
+
+if(/price|pricing|packages|how much|cost/.test(lower)){
+botSay(
+"Our website packages start at:\n\n"+
+"Business Launch: $250\n"+
+"Business Pro: $550\n"+
+"Business Premium: $1,000\n"+
+"Enterprise Solutions: Custom Quote\n\n"+
+"These are starting prices. Tell me what you want to build so I can suggest the most relevant option."
+);
+if(chatState.step==="service")return;
+}
+
+if(/start over|restart|reset chat/.test(lower)){
+resetChat();
+return;
+}
+
+if(chatState.step==="service"){
+const service=detectService(q);
+
+if(!service){
+botSay(
+"To recommend the right service, tell me a little more.\n\n"+
+"For example:\n"+
+"• I need a website for my clinic.\n"+
+"• I need an inventory system for my store.\n"+
+"• I want to redesign my website."
+);
+return;
+}
+
+chatState.service=service;
+chatState.step="business";
+
+botSay(
+"Great! "+service+" could be a suitable option.\n\n"+
+priceGuidance(service)+"\n\n"+
+"To make sure we recommend something useful rather than unnecessary features, what kind of business or organization is this for?"
+);
+return;
+}
+
+if(chatState.step==="business"){
+chatState.business=q;
+chatState.step="features";
+
+let suggestion="";
+
+const business=q.toLowerCase();
+
+if(/clinic|hospital|health/.test(business)){
+suggestion="For healthcare businesses, useful features may include appointment requests, service pages, doctor profiles and organized records.";
+}else if(/restaurant|cafe|food|catering/.test(business)){
+suggestion="For food businesses, useful features may include menus, WhatsApp ordering, inquiries and an attractive mobile experience.";
+}else if(/gym|fitness/.test(business)){
+suggestion="For gyms, useful features may include membership inquiries, schedules, trainer profiles and attendance records.";
+}else if(/store|mart|shop|retail/.test(business)){
+suggestion="For stores, useful features may include product listings, inventory, billing and customer inquiries.";
+}else if(/academy|school|education/.test(business)){
+suggestion="For educational businesses, useful features may include course listings, admission inquiries, schedules and student information.";
+}else{
+suggestion="The best features depend on how your customers or staff will use the solution.";
+}
+
+botSay(
+"Thanks! "+suggestion+"\n\n"+
+"What are the 2–3 most important things you want the website or software to do?"
+);
+return;
+}
+
+if(chatState.step==="features"){
+chatState.features=q;
+chatState.step="budget";
+
+botSay(
+"That gives us a clearer project direction.\n\n"+
+"We can focus on the essential features first and consider additional features later if needed.\n\n"+
+"What approximate budget range are you comfortable with?\n\n"+
+"Under $250 / $250–$500 / $500–$1,000 / $1,000–$2,500 / $2,500+ / Need guidance"
+);
+return;
+}
+
+if(chatState.step==="budget"){
+chatState.budget=q;
+chatState.step="timeline";
+
+botSay(
+"Understood. We'll use that budget as a planning guide, not a guaranteed quotation.\n\n"+
+"When would you ideally like the project completed?\n\n"+
+"For example: 2 weeks, 1 month, 2–3 months, or flexible."
+);
+return;
+}
+
+if(chatState.step==="timeline"){
+chatState.timeline=q;
+chatState.step="complete";
+
+const summary=
+"Service: "+chatState.service+"\n"+
+"Business: "+chatState.business+"\n"+
+"Key Features: "+chatState.features+"\n"+
+"Budget: "+chatState.budget+"\n"+
+"Timeline: "+chatState.timeline;
+
+botSay(
+"Thank you! Your project brief is ready:\n\n"+
+summary+"\n\n"+
+"Next step: use the contact form to send these requirements to AiSoftCare. Our team can review the scope and discuss a suitable proposal.\n\n"+
+"Type 'prepare quote' and I'll fill the form for you."
+);
+return;
+}
+
+if(chatState.step==="complete"){
+if(/quote|form|submit|send|proceed|yes/.test(lower)){
+prepareAdvisorQuote();
+return;
+}
+
+if(/another|different|new project/.test(lower)){
+resetChat();
+return;
+}
+
+botSay(
+"Your project brief is ready. Type 'prepare quote' to fill the contact form, or 'start over' to discuss another project."
+);
+}
+}
+
+function prepareAdvisorQuote(){
+$("clientService").value=chatState.service;
+$("clientBusiness").value=chatState.business;
+$("clientBudget").value="Need guidance";
+
+const details=
+"Project discussed with AiSoftCare Project Advisor\n\n"+
+"Business: "+chatState.business+"\n"+
+"Service: "+chatState.service+"\n"+
+"Required Features: "+chatState.features+"\n"+
+"Estimated Budget: "+chatState.budget+"\n"+
+"Preferred Timeline: "+chatState.timeline;
+
+$("clientDetails").value=details;
+
+$("chatWindow").classList.remove("open");
+$("contact").scrollIntoView({behavior:"smooth"});
+
+setTimeout(()=>$("clientName").focus(),550);
+}
+
+function submitChat(){
+const input=$("chatInput");
+const text=input.value.trim();
+if(!text)return;
+
+addChatMessage("user",text);
+input.value="";
+
+setTimeout(()=>advisorReply(text),250);
+}
+
+$("chatSend").addEventListener("click",submitChat);
+
+$("chatInput").addEventListener("keydown",event=>{
+if(event.key==="Enter"){
+event.preventDefault();
+submitChat();
+}
+});
+
+document.querySelectorAll("[data-quick]").forEach(button=>{
+button.addEventListener("click",()=>{
+const text=button.dataset.quick;
+addChatMessage("user",text);
+
+if(text==="I want a free quote"&&chatState.step==="complete"){
+prepareAdvisorQuote();
+return;
+}
+
+setTimeout(()=>advisorReply(text),200);
+});
+});
+
+/* =================================================
+   SCROLL REVEAL
+================================================= */
+
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if("IntersectionObserver" in window&&!reduceMotion.matches){
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+}else{
+document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
+}
+
+/* =================================================
+   SCROLL-CHANGING BACKGROUND ILLUSIONS
+
+   1. Neon Perspective Grid
+   2. Hexagonal Matrix
+   3. Circuit Streams
+   4. Aurora Waves
+   5. Geometric Warp Tunnel
+
+   Scroll up/down to transition between effects.
+================================================= */
+
+(function(){
+const canvas=$("illusionCanvas");
+const ctx=canvas.getContext("2d");
+if(!ctx)return;
+
+let W=0,H=0,dpr=1;
+let scrollProgress=0;
+let mouseX=.5,mouseY=.5;
+let time=0;
+let animationId=null;
+let lastFrame=0;
+
+const particles=[];
+const PARTICLE_COUNT=85;
+
+function resizeCanvas(){
+dpr=Math.min(window.devicePixelRatio||1,2);
+W=window.innerWidth;
+H=window.innerHeight;
+canvas.width=Math.round(W*dpr);
+canvas.height=Math.round(H*dpr);
+canvas.style.width=W+"px";
+canvas.style.height=H+"px";
+ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+
+function randomParticle(){
+return{
+x:Math.random(),
+y:Math.random(),
+radius:Math.random()*1.8+.4,
+speed:Math.random()*.0002+.00004,
+alpha:Math.random()*.6+.2,
+phase:Math.random()*Math.PI*2
+};
+}
+
+for(let i=0;i<PARTICLE_COUNT;i++){
+particles.push(randomParticle());
+}
+
+function updateScroll(){
+const max=document.documentElement.scrollHeight-innerHeight;
+scrollProgress=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
+$("scrollProgress").style.width=(scrollProgress*100)+"%";
+}
+
+function clearFrame(){
+ctx.clearRect(0,0,W,H);
+}
+
+function glow(x,y,r,color,alpha){
+const g=ctx.createRadialGradient(x,y,0,x,y,r);
+g.addColorStop(0,color.replace("ALPHA",String(alpha)));
+g.addColorStop(1,color.replace("ALPHA","0"));
+ctx.fillStyle=g;
+ctx.beginPath();
+ctx.arc(x,y,r,0,Math.PI*2);
+ctx.fill();
+}
+
+function drawAtmosphere(){
+glow(
+W*(.2+mouseX*.07),
+H*(.23+Math.sin(time*.2)*.06),
+Math.max(W,H)*.5,
+"rgba(20,112,255,ALPHA)",
+.15
+);
+
+glow(
+W*(.82-mouseX*.06),
+H*.7,
+Math.max(W,H)*.48,
+"rgba(145,40,255,ALPHA)",
+.14
+);
+}
+
+function drawParticles(){
+for(const p of particles){
+p.y-=p.speed*(1+scrollProgress*2);
+if(p.y<-.02)p.y=1.02;
+
+const x=p.x*W+Math.sin(time*.35+p.phase)*15;
+const y=p.y*H;
+
+ctx.fillStyle=`rgba(94,217,255,${p.alpha*.8})`;
+ctx.shadowColor="#00dfff";
+ctx.shadowBlur=7;
+ctx.beginPath();
+ctx.arc(x,y,p.radius,0,Math.PI*2);
+ctx.fill();
+}
+ctx.shadowBlur=0;
+}
+
+function drawGrid(){
+const horizon=H*.44;
+const center=W/2+(mouseX-.5)*35;
+
+ctx.save();
+ctx.lineWidth=1;
+
+for(let i=-15;i<=15;i++){
+const x=center+i*W/13;
+ctx.strokeStyle="rgba(0,207,255,.22)";
+ctx.beginPath();
+ctx.moveTo(center,horizon);
+ctx.lineTo(x,H);
+ctx.stroke();
+}
+
+for(let i=1;i<=19;i++){
+const t=i/19;
+const y=horizon+Math.pow(t,1.8)*(H-horizon);
+ctx.strokeStyle=`rgba(48,160,255,${.08+t*.23})`;
+ctx.beginPath();
+ctx.moveTo(0,y);
+ctx.lineTo(W,y);
+ctx.stroke();
+}
+
+ctx.restore();
+
+drawOrbit(
+center,
+H*.38,
+Math.min(W,H)*.23,
+time*.22,
+"rgba(0,238,255,.45)"
+);
+
+drawOrbit(
+center,
+H*.38,
+Math.min(W,H)*.17,
+-time*.3,
+"rgba(158,84,255,.4)"
+);
+}
+
+function drawOrbit(cx,cy,r,angle,color){
+ctx.save();
+ctx.translate(cx,cy);
+ctx.rotate(angle);
+ctx.scale(1,.42);
+ctx.strokeStyle=color;
+ctx.lineWidth=2;
+ctx.shadowColor=color;
+ctx.shadowBlur=15;
+ctx.beginPath();
+ctx.arc(0,0,r,0,Math.PI*1.55);
+ctx.stroke();
+ctx.restore();
+ctx.shadowBlur=0;
+}
+
+function drawHexagon(cx,cy,r){
+ctx.beginPath();
+for(let i=0;i<6;i++){
+const a=Math.PI/3*i+Math.PI/6;
+const x=cx+Math.cos(a)*r;
+const y=cy+Math.sin(a)*r;
+if(i===0)ctx.moveTo(x,y);
+else ctx.lineTo(x,y);
+}
+ctx.closePath();
+ctx.stroke();
+}
+
+function drawHexMatrix(){
+const size=Math.max(27,Math.min(47,W/28));
+const rowHeight=size*1.72;
+
+ctx.save();
+ctx.lineWidth=1;
+
+for(let row=-1;row<H/rowHeight+2;row++){
+for(let col=-1;col<W/(size*3)+3;col++){
+const x=col*size*3+(row%2)*size*1.5;
+const y=row*rowHeight;
+const pulse=(Math.sin(time*1.2+col*.6+row*.5)+1)/2;
+
+ctx.strokeStyle=`rgba(0,220,255,${.09+pulse*.2})`;
+drawHexagon(x,y,size*.93);
+
+if(pulse>.92){
+glow(x,y,size*1.2,"rgba(0,230,255,ALPHA)",.14);
+}
+}
+}
+
+ctx.restore();
+}
+
+function drawCircuits(){
+ctx.save();
+ctx.lineWidth=1.4;
+
+const columns=12;
+const rows=9;
+const cellW=W/columns;
+const cellH=H/rows;
+
+for(let r=0;r<rows;r++){
+for(let c=0;c<columns;c++){
+const x=c*cellW;
+const y=r*cellH;
+const seed=(r*7+c*11)%5;
+const active=(Math.sin(time*.9+c*.5-r*.4)+1)/2;
+
+ctx.strokeStyle=
+seed%2===0?
+`rgba(0,222,255,${.09+active*.18})`:
+`rgba(149,73,255,${.09+active*.18})`;
+
+ctx.beginPath();
+ctx.moveTo(x,y+cellH*.5);
+ctx.lineTo(x+cellW*.45,y+cellH*.5);
+
+if(seed%2===0){
+ctx.lineTo(x+cellW*.45,y+cellH);
+}else{
+ctx.lineTo(x+cellW*.45,y);
+}
+ctx.stroke();
+
+if(active>.9){
+glow(
+x+cellW*.45,
+y+cellH*.5,
+25,
+"rgba(0,234,255,ALPHA)",
+.2
+);
+}
+}
+}
+ctx.restore();
+}
+
+function drawAurora(){
+ctx.save();
+
+for(let layer=0;layer<7;layer++){
+const baseY=H*(.2+layer*.11);
+const amplitude=30+layer*8;
+const frequency=.006+layer*.0004;
+
+ctx.beginPath();
+
+for(let x=0;x<=W+8;x+=8){
+const y=
+baseY+
+Math.sin(x*frequency+time*.5+layer*.7)*amplitude+
+Math.cos(x*.003-time*.35)*25;
+
+if(x===0)ctx.moveTo(x,y);
+else ctx.lineTo(x,y);
+}
+
+ctx.strokeStyle=
+layer%2===0?
+`rgba(0,234,255,${.12+layer*.02})`:
+`rgba(162,72,255,${.14+layer*.02})`;
+
+ctx.lineWidth=2.5;
+ctx.shadowBlur=14;
+ctx.shadowColor=layer%2===0?"#00dfff":"#9d4cff";
+ctx.stroke();
+}
+
+ctx.restore();
+ctx.shadowBlur=0;
+}
+
+function drawWarpTunnel(){
+const cx=W/2+(mouseX-.5)*30;
+const cy=H/2+(mouseY-.5)*25;
+
+ctx.save();
+ctx.translate(cx,cy);
+ctx.rotate(Math.sin(time*.15)*.05);
+
+const maxR=Math.max(W,H)*.75;
+
+for(let i=0;i<16;i++){
+const shift=(time*.14)%1;
+const depth=((i/16+shift)%1);
+const r=18+Math.pow(depth,2.1)*maxR;
+const alpha=.08+depth*.35;
+
+ctx.strokeStyle=
+i%2===0?
+`rgba(0,234,255,${alpha})`:
+`rgba(150,65,255,${alpha})`;
+
+ctx.lineWidth=1.5+depth*1.5;
+ctx.beginPath();
+
+const sides=8;
+for(let j=0;j<sides;j++){
+const angle=Math.PI*2*j/sides+time*.045;
+const x=Math.cos(angle)*r;
+const y=Math.sin(angle)*r;
+if(j===0)ctx.moveTo(x,y);
+else ctx.lineTo(x,y);
+}
+ctx.closePath();
+ctx.stroke();
+}
+
+ctx.restore();
+}
+
+const effects=[
+drawGrid,
+drawHexMatrix,
+drawCircuits,
+drawAurora,
+drawWarpTunnel
+];
+
+function draw(){
+clearFrame();
+drawAtmosphere();
+
+const position=scrollProgress*(effects.length-1);
+const current=Math.min(effects.length-1,Math.floor(position));
+const next=Math.min(effects.length-1,current+1);
+const blend=position-current;
+
+ctx.save();
+ctx.globalAlpha=1-blend;
+effects[current]();
+ctx.restore();
+
+if(next!==current){
+ctx.save();
+ctx.globalAlpha=blend;
+effects[next]();
+ctx.restore();
+}
+
+drawParticles();
+}
+
+function animate(timestamp){
+if(document.hidden){
+animationId=null;
+return;
+}
+
+if(timestamp-lastFrame<25){
+animationId=requestAnimationFrame(animate);
+return;
+}
+
+const dt=Math.min((timestamp-lastFrame)/1000,.05);
+lastFrame=timestamp;
+time+=dt;
+
+draw();
+animationId=requestAnimationFrame(animate);
+}
+
+function startAnimation(){
+if(animationId===null&&!reduceMotion.matches){
+lastFrame=performance.now();
+animationId=requestAnimationFrame(animate);
+}
+}
+
+window.addEventListener("resize",()=>{
+resizeCanvas();
+if(reduceMotion.matches)draw();
+},{passive:true});
+
+window.addEventListener("scroll",()=>{
+updateScroll();
+if(reduceMotion.matches)draw();
+},{passive:true});
+
+window.addEventListener("pointermove",e=>{
+mouseX=e.clientX/Math.max(W,1);
+mouseY=e.clientY/Math.max(H,1);
+},{passive:true});
+
+document.addEventListener("visibilitychange",()=>{
+if(!document.hidden)startAnimation();
+});
+
+resizeCanvas();
+updateScroll();
+draw();
+startAnimation();
+})();
+
+</script>
 </body>
 </html>
